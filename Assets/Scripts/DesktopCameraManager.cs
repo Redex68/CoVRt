@@ -35,6 +35,8 @@ public class DesktopCameraManager : MonoBehaviour
     */
     void StepCamera(int step) {
         currentCamera = (currentCamera + step) % cameraPoses.Length;
+        // because % is not euclidean modulo in c# ;_;
+        if (currentCamera < 0) currentCamera += cameraPoses.Length;
     }
 
     // Update is called once per frame
