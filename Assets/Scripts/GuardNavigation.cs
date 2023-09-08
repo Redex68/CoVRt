@@ -42,6 +42,7 @@ public class GuardNavigation : MonoBehaviour
         
         int indx = UnityEngine.Random.Range(0, waypoints.Count);
         agent.SetDestination(waypoints[indx].position);
+        Debug.Log("\"" + name + "\" going to \"" + waypoints[indx].name + "\"");
         waiting = false;
     }
 }
