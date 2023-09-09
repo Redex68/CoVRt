@@ -15,22 +15,6 @@ MonoBehaviour:
   m_Active: 1
   m_Shader: {fileID: 4800000, guid: 931228cfa8e03ac4ea795d180455cc11, type: 3}
   m_Intensity: 1.5
---- !u!114 &-6696380089366275842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b40054d3372fe4d8717d92de0af3bf, type: 3}
-  m_Name: ColorBlitRendererFeature
-  m_EditorClassIdentifier: 
-  m_Active: 1
-  m_Shader: {fileID: 4800000, guid: 931228cfa8e03ac4ea795d180455cc11, type: 3}
-  m_Intensity: 1.96
-  m_Material: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
