@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.UI;
+using static UnityEngine.GraphicsBuffer;
 
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
     /// <summary>
     /// Use this class to mediate the controllers and their associated interactors and input actions under different interaction states.
-    /// </summary>
+    /// </summary
+
     [AddComponentMenu("XR/Action Based Controller Manager")]
     [DefaultExecutionOrder(k_UpdateOrder)]
     public class ActionBasedControllerManager : MonoBehaviour
@@ -21,6 +23,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// values of the input actions.
         /// </remarks>
         public const int k_UpdateOrder = XRInteractionUpdateOrder.k_Controllers - 1;
+        [SerializeField] GameObject teleportationBall, playerInstance;
+        GameObject teleportationBallInstance;
 
         [Space]
         [Header("Interactors")]
@@ -215,13 +219,26 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         void OnStartTeleport(InputAction.CallbackContext context)
         {
+            /*
             m_PostponedDeactivateTeleport = false;
 
             if (m_TeleportInteractor != null)
                 m_TeleportInteractor.gameObject.SetActive(true);
 
             if (m_RayInteractor != null)
-                m_RayInteractor.gameObject.SetActive(false);
+                m_RayInteractor.gameObject.SetActive(false);*/
+            Debug.Log("OnStartTeleport");
+            if (teleportationBallInstance != null)
+            {
+                playerInstance.transform.position = teleportationBallInstance.transform.position;
+                Destroy(teleportationBallInstance);
+            }
+            else
+            {
+                teleportationBallInstance = Instantiate(teleportationBall);
+                teleportationBallInstance.transform.position = transform.position;
+                //teleportationBallInstance.GetComponent<TeleportationBall>()
+            }
         }
 
         void OnCancelTeleport(InputAction.CallbackContext context)
@@ -230,11 +247,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             // We delay turning off the teleport interactor in this callback so that
             // the teleport interactor has a chance to complete the teleport if needed.
             // OnAfterInteractionEvents will handle deactivating its GameObject.
-            m_PostponedDeactivateTeleport = true;
+            /*m_PostponedDeactivateTeleport = true;
 
             if (m_RayInteractor != null)
-                m_RayInteractor.gameObject.SetActive(true);
-
+                m_RayInteractor.gameObject.SetActive(true);*/
+            if (teleportationBallInstance != null)
+            {
+                teleportationBallInstance.GetComponent<Rigidbody>().useGravity = true;
+            }
         }
 
         void OnStartLocomotion(InputAction.CallbackContext context)
