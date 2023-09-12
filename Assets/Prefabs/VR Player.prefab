@@ -1331,7 +1331,6 @@ Transform:
   - {fileID: 4268486299403305081}
   - {fileID: 6323071948941790939}
   - {fileID: 5052717767392591243}
-  - {fileID: 5024524731999297916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!1 &1399577814078111391
@@ -3199,8 +3198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportationBall: {fileID: 0}
-  playerInstance: {fileID: 0}
+  teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc, type: 3}
+  playerInstance: {fileID: 3474337040825122086}
   m_ManipulationInteractionGroup: {fileID: 2261856893167771703}
   m_DirectInteractor: {fileID: 6666350015702490247}
   m_RayInteractor: {fileID: 8509968435159081329}
@@ -6395,6 +6394,7 @@ Transform:
   m_Children:
   - {fileID: 5960686684969662965}
   - {fileID: 1526795485611962567}
+  - {fileID: 5024524731999297916}
   m_Father: {fileID: 7385220706366205180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8185740403441918302
@@ -11208,8 +11208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportationBall: {fileID: 0}
-  playerInstance: {fileID: 0}
+  teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc, type: 3}
+  playerInstance: {fileID: 3474337040825122086}
   m_ManipulationInteractionGroup: {fileID: 8240562137455590913}
   m_DirectInteractor: {fileID: 7327360222868297346}
   m_RayInteractor: {fileID: 8319970272752516955}
@@ -12680,12 +12680,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7182172802180569292}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4.57, z: 0}
   m_LocalScale: {x: 0.2, y: 1, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7385220706366205180}
+  m_Father: {fileID: 5052717767392591243}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7310878535995975313
 MeshFilter:

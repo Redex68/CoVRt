@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 using static UnityEngine.GraphicsBuffer;
 
+
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
     /// <summary>
@@ -237,7 +238,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             {
                 teleportationBallInstance = Instantiate(teleportationBall);
                 teleportationBallInstance.transform.position = transform.position;
-                //teleportationBallInstance.GetComponent<TeleportationBall>()
+               // teleportationBallInstance.GetComponent<TeleportationBall>();
             }
         }
 
