@@ -3198,7 +3198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportationBall: {fileID: 0}
+  teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc, type: 3}
+  playerInstance: {fileID: 3474337040825122086}
   m_ManipulationInteractionGroup: {fileID: 2261856893167771703}
   m_DirectInteractor: {fileID: 6666350015702490247}
   m_RayInteractor: {fileID: 8509968435159081329}
@@ -11206,7 +11207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportationBall: {fileID: 0}
+  teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc, type: 3}
+  playerInstance: {fileID: 3474337040825122086}
   m_ManipulationInteractionGroup: {fileID: 8240562137455590913}
   m_DirectInteractor: {fileID: 7327360222868297346}
   m_RayInteractor: {fileID: 8319970272752516955}
