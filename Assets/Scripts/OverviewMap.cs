@@ -17,6 +17,6 @@ public class OverviewMap : MonoBehaviour
     {
         if (floor >= 1 && floor <= 5) layer = floor + 5;
         else layer = 6;
-        cam.cullingMask = (1 << layer) | (1 << LayerMask.NameToLayer("Stairs"));
+        cam.cullingMask = (1 << layer) | (1 << LayerMask.NameToLayer("Stairs")) | (1 << LayerMask.NameToLayer("MapIcon"));
     }
 }
