@@ -4,10 +4,12 @@ Shader "CustomRenderTexture/CCTV_DistortionShader"
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex("InputTex", 2D) = "white" {}
-     }
+        _Intensity("Intensity", Range(0,10)) = 1
+        _Interlace("Interlacing", Integer) = 3
+    }
 
-     SubShader
-     {
+    SubShader
+    {
         Blend One Zero
 
         Pass
@@ -22,6 +24,8 @@ Shader "CustomRenderTexture/CCTV_DistortionShader"
 
             float4      _Color;
             sampler2D   _MainTex;
+            float _Intensity;
+            uint _Interlace;
             
             float osc_rand(float seed) {
                 return frac(
@@ -34,8 +38,8 @@ Shader "CustomRenderTexture/CCTV_DistortionShader"
                     * 43758.5453);
             }
             float4 interlace(float2 coord, float4 color) {
-                if (uint(coord.y) % 3 == 0) {
-                    return color * ((sin(_Time.y * 4.) * 0.1) + 0.75) + (osc_rand(_Time.y) * 0.05);
+                if (uint(coord.y) % _Interlace == 0) {
+                    return color * ((sin(_Time.z * 4.) * 0.1) + 0.75) + (osc_rand(_Time.y) * 0.05);
                 }
                 return color;
             }
@@ -44,7 +48,7 @@ Shader "CustomRenderTexture/CCTV_DistortionShader"
             {
                 float2 uv = IN.localTexcoord.xy;
                 float2 dimensions = _CustomRenderTextureInfo.xy;
-                float2 displacement = float2(0.005, 0.001) * (0.5 - float2(osc_rand(_Time.y * 37.0 * uv.y), osc_rand(_Time.y * 37.0 * uv.x)));
+                float2 displacement = float2(0.005, 0.001) * (0.5 - float2(osc_rand(_Time.x * 37.0 * uv.y), osc_rand(_Time.y * 37.0 * uv.x))) * _Intensity;
                 float2 pixel_coords = uv * dimensions;
                 float4 color = tex2D(_MainTex, uv + displacement) * _Color;
                 /*
