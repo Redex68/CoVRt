@@ -76,7 +76,7 @@ public class GuardSpotting : MonoBehaviour
         }
         else spotMeter += Time.deltaTime / highestSpotCoef;
 
-        Debug.Log("Spot meter: " + spotMeter);
+        //Debug.Log("Spot meter: " + spotMeter);
         if(spotMeter >= 1.0f)
         {
             Debug.Log("Player spotted by \"" + name + "\"");
