@@ -3591,7 +3591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_teleportBallUse: {fileID: 5990120795387365663, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_teleportBallRecall: {fileID: 0}
+  m_teleportBallRecall: {fileID: -8305153006046197033, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc, type: 3}
   playerInstance: {fileID: 3474337040825122086}
   tpBallTarget: {fileID: 7100045452617145451}
