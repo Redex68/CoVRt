@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 using static UnityEngine.GraphicsBuffer;
 
+
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
     /// <summary>
@@ -23,8 +24,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// values of the input actions.
         /// </remarks>
         public const int k_UpdateOrder = XRInteractionUpdateOrder.k_Controllers - 1;
-        [SerializeField] GameObject teleportationBall, playerInstance;
-        GameObject teleportationBallInstance;
 
         [Space]
         [Header("Interactors")]
@@ -227,6 +226,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
             if (m_RayInteractor != null)
                 m_RayInteractor.gameObject.SetActive(false);*/
+            
+            /* below was added during merge, if it's necessary this can be commented out /Tobias
             Debug.Log("OnStartTeleport");
             if (teleportationBallInstance != null)
             {
@@ -237,8 +238,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             {
                 teleportationBallInstance = Instantiate(teleportationBall);
                 teleportationBallInstance.transform.position = transform.position;
-                //teleportationBallInstance.GetComponent<TeleportationBall>()
+               // teleportationBallInstance.GetComponent<TeleportationBall>();
             }
+            */
         }
 
         void OnCancelTeleport(InputAction.CallbackContext context)
@@ -251,10 +253,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
             if (m_RayInteractor != null)
                 m_RayInteractor.gameObject.SetActive(true);*/
-            if (teleportationBallInstance != null)
-            {
-                teleportationBallInstance.GetComponent<Rigidbody>().useGravity = true;
-            }
         }
 
         void OnStartLocomotion(InputAction.CallbackContext context)

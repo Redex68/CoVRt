@@ -2197,6 +2197,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "TP Ball",
+            "id": "cc8964b5-9e6f-4f59-9b30-7dd35f1a24f2",
+            "actions": [
+                {
+                    "name": "TP Ball Use",
+                    "type": "Button",
+                    "id": "27fd7715-a080-423b-9bac-4955ab1a4804",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TP Ball Recall",
+                    "type": "Button",
+                    "id": "88f8376b-db5b-4611-a8ef-32813ff1b3a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "375e5b01-60ec-42d1-a8ce-f03e4c8988ce",
+                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "interactions": "Sector(directions=1)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "TP Ball Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75e28420-aa5e-4773-9606-6ecf563a63d2",
+                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "interactions": "Sector(directions=2)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "TP Ball Recall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

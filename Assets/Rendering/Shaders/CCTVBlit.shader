@@ -35,7 +35,7 @@ Shader "CCTVBlit"
             }
 
             float4 interlace(float2 coord, float4 color) {
-                if (int(coord.y) % 3 == 0){
+                if (uint(coord.y) % 3 == 0){
                     return color * ((sin(_Time.y * 4.) * 0.1) + 0.75) + (osc_rand(_Time.y) * 0.05);
                 }
                 return color;
