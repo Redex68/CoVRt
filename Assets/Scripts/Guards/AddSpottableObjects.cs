@@ -11,6 +11,7 @@ public class AddSpottableObjects : MonoBehaviour
 
     void Awake()
     {
+        list.spottables.Clear();
         list.spottables.AddRange(spottables);
         Destroy(GetComponent<AddSpottableObjects>());
     }
