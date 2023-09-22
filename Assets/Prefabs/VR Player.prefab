@@ -3158,6 +3158,7 @@ GameObject:
   - component: {fileID: 2238456735513447867}
   - component: {fileID: 2261856893167771703}
   - component: {fileID: 5892877873262582626}
+  - component: {fileID: 6451363145454096672}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -3198,8 +3199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc, type: 3}
-  playerInstance: {fileID: 3474337040825122086}
   m_ManipulationInteractionGroup: {fileID: 2261856893167771703}
   m_DirectInteractor: {fileID: 6666350015702490247}
   m_RayInteractor: {fileID: 8509968435159081329}
@@ -3579,6 +3578,23 @@ MonoBehaviour:
         m_CallState: 2
   m_LargeMovementDistanceThreshold: 0.05
   m_LargeMovementCoolDownTime: 0.25
+--- !u!114 &6451363145454096672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275099876255542340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c2244f6b2529b4db9facd11cbbcf57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_teleportBallUse: {fileID: 5990120795387365663, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_teleportBallRecall: {fileID: -8305153006046197033, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc, type: 3}
+  playerInstance: {fileID: 3474337040825122086}
+  tpBallTarget: {fileID: 7100045452617145451}
 --- !u!1 &2323795353689147224
 GameObject:
   m_ObjectHideFlags: 0
@@ -4015,7 +4031,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.02
+    widthMultiplier: 0.015
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5006,7 +5022,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.02
+    widthMultiplier: 0.015
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5641,7 +5657,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.02
+    widthMultiplier: 0.005
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -10739,7 +10755,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.02
+    widthMultiplier: 0.005
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -11208,8 +11224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc, type: 3}
-  playerInstance: {fileID: 3474337040825122086}
   m_ManipulationInteractionGroup: {fileID: 8240562137455590913}
   m_DirectInteractor: {fileID: 7327360222868297346}
   m_RayInteractor: {fileID: 8319970272752516955}
@@ -12490,7 +12504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3716349627991675498
 Transform:
   m_ObjectHideFlags: 0

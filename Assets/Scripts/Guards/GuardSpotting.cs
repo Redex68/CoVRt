@@ -1,21 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static SpottablesList;
 
 public class GuardSpotting : MonoBehaviour
 {
     [SerializeField]
-    GameObject player;
-
-    [SerializeField]
     FloatVariable guardFOV;
     [SerializeField]
     GameEvent playerSpotted;
+    [SerializeField]
+    GameEvent playerEnteredLOS;
+    [SerializeField]
+    /// <summary> A list of all game objects that can be spotted by the guard. </summary>
+    SpottablesList spottableObjects;
+    [SerializeField]
+    /// <summary> The layers the spot raycast can hit </summary>
+    LayerMask mask;
+
+    private float spotMeter = 0.0f;
+    private bool spotting = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(player == null) Debug.LogError("No Player GameObject set");
+        if(spottableObjects.spottables.Count == 0) Debug.LogError("No spottable objects in list.");
     }
 
     // Update is called once per frame
@@ -37,23 +47,45 @@ public class GuardSpotting : MonoBehaviour
         //Debug.DrawLine(transform.position, Vector3.RotateTowards(transform.forward, transform.right, guardFOV.Value / 2.0f / 180f * Mathf.PI, 0) * 100 + transform.position);
         //Debug.DrawLine(transform.position, Vector3.RotateTowards(transform.forward, -transform.right,guardFOV.Value / 2.0f / 180f * Mathf.PI, 0) * 100 + transform.position);
         
-        if(player != null && !State.gameOver)
+        float highestSpotCoef = 0.0f;
+
+        if(!State.gameOver)
         {
-            if(PlayerIsInFront())
+            //Find the object with the fastest spot time that's visible to the guard.
+            foreach (SpottableObject spottable in spottableObjects.spottables)
             {
-                //TODO: Make a better check for whether the ray hit the player (tag?)
-                //TODO: Add layermask
-                if (Physics.Raycast(transform.position, player.transform.position - transform.position, out RaycastHit hitInfo) && hitInfo.transform.gameObject.name == "Player")
+                if(ObjectIsInFront(spottable.obj)
+                    && Physics.Raycast(transform.position, spottable.obj.transform.position - transform.position, out RaycastHit hitInfo, 300.0f, mask)
+                    && hitInfo.transform.gameObject == spottable.obj
+                )
                 {
-                    Debug.Log("In LOS");
-                    playerSpotted.Raise(this, null);
-                    State.gameOver = true;
+                    highestSpotCoef = highestSpotCoef == 0.0f ? spottable.spotTime : Mathf.Min(highestSpotCoef, spottable.spotTime);
+                    if(!spotting)
+                    {
+                        playerEnteredLOS.Raise(this, null);
+                        spotting = true;
+                    }
                 }
             }
         }
+
+        if(highestSpotCoef == 0.0f)
+        {
+            spotting = false;
+            spotMeter = 0.0f;
+        }
+        else spotMeter += Time.deltaTime / highestSpotCoef;
+
+        //Debug.Log("Spot meter: " + spotMeter);
+        if(spotMeter >= 1.0f)
+        {
+            Debug.Log("Player spotted by \"" + name + "\"");
+            playerSpotted.Raise(this, null);
+            State.gameOver = true;
+        }
     }
 
-    private bool PlayerIsInFront() {
-        return Vector3.Angle(transform.forward, player.transform.position - transform.position) < guardFOV.Value / 2.0f;
+    private bool ObjectIsInFront(GameObject obj) {
+        return Vector3.Angle(transform.forward, obj.transform.position - transform.position) < guardFOV.Value / 2.0f;
     }
 }
