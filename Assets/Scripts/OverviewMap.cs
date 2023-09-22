@@ -5,15 +5,30 @@ using UnityEngine.UI;
 
 public class OverviewMap : MonoBehaviour
 {
+    private int camIndex;
     private int layer;
     public Camera cam;
     public GameObject floor1Cams;
     public GameObject floor2Cams;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         layer = 6;
+    }
+
+    public void ToggleCamera(int step)
+    {
+        // increment index by step, loop back around if below/above limits
+        camIndex += step;
+        if (camIndex < 0) camIndex = floor1Cams.transform.childCount + floor2Cams.transform.childCount - 1;
+        else if (camIndex > floor1Cams.transform.childCount + floor2Cams.transform.childCount - 1) camIndex = 0;
+
+        // manually switch camera by setting the toggle to on
+        Toggle toggle;
+        if (camIndex < floor1Cams.transform.childCount) toggle = floor1Cams.transform.GetChild(camIndex).GetComponent<Toggle>();
+        else toggle = floor2Cams.transform.GetChild(camIndex - floor1Cams.transform.childCount).GetComponent<Toggle>();
+        toggle.isOn = true;
     }
 
     public void SwitchFloor(int floor)
