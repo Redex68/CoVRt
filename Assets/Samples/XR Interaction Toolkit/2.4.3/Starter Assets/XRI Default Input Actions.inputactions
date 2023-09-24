@@ -2245,6 +2245,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Other",
+            "id": "7e037937-149b-4c0e-bc06-690e4bf5320a",
+            "actions": [
+                {
+                    "name": "ButtonPress",
+                    "type": "Button",
+                    "id": "9d1c7355-b634-40e9-945e-edfa575db1a3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ebfa9b83-edf0-4fe6-a91b-0612d39d7026",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "527e7aa4-fc2f-454a-bdac-8c57d1c99a50",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
