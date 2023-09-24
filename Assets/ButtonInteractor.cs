@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.InputSystem;
 
 public class ButtonInteractor : MonoBehaviour
@@ -20,6 +21,30 @@ public class ButtonInteractor : MonoBehaviour
         if (buttonPressAction != null)
         {
             buttonPressAction.performed += OnButtonPress;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Button"))
+        {
+            KeypadButton kpb = other.GetComponent<KeypadButton>();
+            if (kpb != null)
+            {
+                kpb.OnEntered(this);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Button"))
+        {
+            KeypadButton kpb = other.GetComponent<KeypadButton>();
+            if (kpb != null)
+            {
+                kpb.OnExited(this);
+            }
         }
     }
 

@@ -25,30 +25,16 @@ public class KeypadButton : MonoBehaviour
         startColor = rendR.material.color;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnEntered(ButtonInteractor interactor)
     {
-        if (true || other.gameObject.CompareTag("PokeInteractor"))
-        {
-            rendR.material.color = Color.cyan;
-            ButtonInteractor interactor = other.GetComponent<ButtonInteractor>();
-            if (interactor != null)
-            {
-                interactor.buttonPress += OnPress;
-            }
-        }
+        rendR.material.color = Color.cyan;
+        interactor.buttonPress += OnPress;
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnExited(ButtonInteractor interactor)
     {
-        if (true || other.gameObject.CompareTag("PokeInteractor"))
-        {
-            rendR.material.color = startColor;
-            ButtonInteractor interactor = other.GetComponent<ButtonInteractor>();
-            if (interactor != null)
-            {
-                interactor.buttonPress -= OnPress;
-            }
-        }
+        rendR.material.color = startColor;
+        interactor.buttonPress -= OnPress;
     }
 
     private void OnPress(object sender, EventArgs e)
