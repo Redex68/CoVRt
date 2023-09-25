@@ -5,11 +5,12 @@ Shader "Custom/FractalDimension"
     Properties
     { 
         _MAX_DST ("Max Distance", Range(1 ,30)) = 10 
-        _MAX_STEP ("", Range(50, 400)) = 150 
+        _MAX_STEP ("Max Steps", Range(50, 400)) = 150 
         _EPSILON ("Epsilon", Float) = 0.0001
         _LightDir ("Light direction", Vector) = (1, 1, 1)
         _OriginMode ("Origin mode", Integer) = 0
         _Origin ("Origin if Origin mode is 0", Vector) = (1, 1, 1)
+        _FlipMode ("Flip?", Integer) = 0
     }
 
     // The SubShader block containing the Shader code. 
@@ -71,8 +72,9 @@ Shader "Custom/FractalDimension"
             uint _MAX_STEP;
             uint _OriginMode;
             float3 _Origin;
+            uint _FlipMode;
 
-            #define mod(x, y) (x) - (y) * floor((x)/(y))
+            #define mod(x, y) ((x) - (y) * floor((x)/(y)))
 
             // taken from that one discord thing, and the distance estimator compendium
             // Appollonian fractal sdf
@@ -124,25 +126,28 @@ Shader "Custom/FractalDimension"
             half4 frag(Varyings IN) : SV_Target
             {
                 float2 ndc = IN.positionNDC.xy / IN.positionNDC.w; // This should let us determine what direction to raymarch in
+                ndc = (ndc - 0.5) * 2; // because OF COURSE "normalized device coordinates" are not normalized device coordinates
 
                 // create a ray
                 // Taken from Sebastian Lague's raymarching video
                 float3 origin;
+                float flip = _FlipMode ? -1 : 1;
                 switch (_OriginMode) {
                     case 0:
-                        origin = _Origin; break;
+                        origin = _Origin; break; // use static origin
                     case 1:
-                        origin = mul(_WorldSpaceCameraPos, unity_WorldToObject); break;
+                        origin = mul(_WorldSpaceCameraPos, unity_WorldToObject); break; // these seem to be the same when the origin is the same for all triangles
                     case 2: 
-                        origin = mul(unity_WorldToObject, _WorldSpaceCameraPos); break;
+                        origin = mul(unity_WorldToObject, _WorldSpaceCameraPos); break; // these seem to be the same when the origin is the same for all triangles
                     default:
-                        origin = mul(unity_CameraToWorld, float4(0.0, 0.0, 0.0, 1.0)).xyz; break;
+                        origin = mul(unity_CameraToWorld, float4(0.0, 0.0, 0.0, 1.0)).xyz; break; // these seeem to be the same when the origin is the same for all triangles
                 }    
-                float3 direction = mul(unity_CameraInvProjection, float4(ndc, 0.0, 1.0)).xyz;
+                float3 direction = mul(unity_CameraInvProjection, float4(flip * ndc, 0.0, 1.0)).xyz;
                 direction = mul(unity_CameraToWorld, float4(direction, 0.0)).xyz;
+                //direction = mul(unity_WorldToCamera, float4(direction, 0.0)).xyz;
                 direction = normalize(direction);
 
-                half4 output_color = raymarch(origin, direction);
+                half4 output_color = raymarch(flip * origin, direction);
                 return output_color;
                 // return half4(ndc , 0.0, 1.0);
             }
