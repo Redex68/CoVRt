@@ -4,13 +4,29 @@ Shader "Custom/FractalDimension"
     // because the output color is predefined in the fragment shader code.
     Properties
     { 
+        [Header(Raymarching settings)]
+        [Space(5)]
         _MAX_DST ("Max Distance", Range(1 ,30)) = 10 
-        _MAX_STEP ("Max Steps", Range(50, 400)) = 150 
-        _EPSILON ("Epsilon", Float) = 0.0001
-        _LightDir ("Light direction", Vector) = (1, 1, 1)
-        _OriginMode ("Origin mode", Integer) = 0
-        _Origin ("Origin if Origin mode is 0", Vector) = (1, 1, 1)
-        _FlipMode ("Flip?", Integer) = 0
+        [IntRange] _MAX_STEP ("Max Steps", Range(50, 400)) = 150 
+        [PowerSlider(10)] _EPSILON ("Epsilon", Range(0.0000001, 0.001)) = 0.0001
+        _Scale ("Fractal scale", Range(1,2)) = 1.3
+        [KeywordEnum(Fixed, OW, WO, WS)] _OriginMode ("Origin mode", Integer) = 0
+        _Origin ("Origin if Origin mode is 0", Vector) = (1, 1, 1, 0)
+        [Toggle] _FlipMode ("Flip?", Integer) = 0
+
+        [Header(Lighting settings)]
+        [Space(5)]
+        _MixColorA ("Color A", Color) = (1, 1, 1, 1)  
+        _MixColorB ("Color B", Color) = (1, 1, 1, 1)  
+        [Space(20)]
+        _LightPosition ("Light position", Vector) = (1, 1, 1, 0)
+        _SunColor ("Light Color", Color) = (1, 1, 1, 1)  
+        _SunStrength ("Light Strength", Range(0,0.1)) = 0
+        _Gloss ("Gloss", Range(0,20)) = 12
+        [Space(20)]
+        _FogColor ("Fog color", Color) = (0.5, 0.5, 0.5, 0.5)
+        _FogDensity ("Fog density", Range(0,1)) = 0
+        _FogOffset ("Fog offset", Range(0,100)) = 100
     }
 
     // The SubShader block containing the Shader code. 
@@ -32,7 +48,8 @@ Shader "Custom/FractalDimension"
             // The Core.hlsl file contains definitions of frequently used HLSL
             // macros and functions, and also contains #include references to other
             // HLSL files (for example, Common.hlsl, SpaceTransforms.hlsl, etc.).
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"            
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"      
+            //#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl" 
 
             // The structure definition defines which variables it contains.
             // This example uses the Attributes structure as an input structure in
@@ -66,24 +83,36 @@ Shader "Custom/FractalDimension"
                 return OUT;
             }
 
-            float3 _LightDir;
             float _MAX_DST;
             float _EPSILON;
             uint _MAX_STEP;
+            float _Scale;
             uint _OriginMode;
             float3 _Origin;
             uint _FlipMode;
 
+            float4 _MixColorA;
+            float4 _MixColorB;
+            float4 _SunColor;
+            float _Gloss;
+            float3 _LightPosition;
+            float _SunStrength;
+            
+            float _FogDensity, _FogOffset;
+            float4 _FogColor;
+
             #define mod(x, y) ((x) - (y) * floor((x)/(y)))
 
             // taken from that one discord thing, and the distance estimator compendium
+            // modified to have adjustable scale
             // Appollonian fractal sdf
             float de ( float3 p ) {
                 float s = 3.0f, e;
                 for ( int i = 0; i++ < 8; ) {
                     //p = ((p - 1.0) - 2.0 * floor((p-1.0) / 2.0)) - 1.0; // translation of glsl mod to hlsl
                     p = mod( p - 1.0f, 2.0f ) - 1.0f;
-                    s *= e = 1.4f / dot( p, p );
+                    //s *= e = 1.3f / dot( p, p );
+                    s *= e = _Scale / dot( p, p );
                     p *= e;
                 }
                 return length( p.yz ) / s;
@@ -97,6 +126,38 @@ Shader "Custom/FractalDimension"
                 float z = de(p + dz) - de(p - dz);
                 return normalize(float3(x, y, z));
             }
+            float4 color(float3 position, float3 direction, float3 normal, float distance, uint steps) {
+                
+                float light = normalize(_LightPosition - position);
+                float ca = saturate(dot(normal*0.5+0.5, light));
+                float cb = saturate(float(steps) / _MAX_STEP);
+                float4 col = saturate(lerp(_MixColorA, _MixColorB, cb));
+
+                float3 sun = normalize(_LightPosition);
+                col += _SunColor * max(0, dot(sun, normal)) * _SunStrength;
+                
+                float3 reflected = reflect(direction, normal);
+                col += pow(max(dot(sun, reflected), 0), _Gloss) * _SunColor * 0.5 * _SunStrength;
+
+                float fogfactor = (_FogDensity / sqrt(log(2))) * max(0, distance - _FogOffset);
+                fogfactor = saturate(exp2(-fogfactor * fogfactor));
+                float4 final = lerp(_FogColor, col, fogfactor);
+                /* NOTE THIS NEEDS THE LIGHTING INCLUDE AT THE TOP OF THE FILE
+                InputData input = (InputData)0;
+                input.normalWS = normal;
+                input.positionWS = position;
+                input.viewDirectionWS = direction;
+
+                SurfaceData surface = (SurfaceData)0;
+                surface.albedo = _SunColor.rgb;
+                surface.alpha = _SunColor.a;
+                surface.specular = 1;
+                surface.smoothness = _Gloss;
+                float4 final;
+                final = UniversalFragmentPBR(input, surface);
+                */
+                return final;
+            }
 
             // determine the color of the pixel 
             half4 raymarch(float3 origin, float3 direction) {
@@ -106,20 +167,24 @@ Shader "Custom/FractalDimension"
                 float ray_dist = 0;
                 uint steps = 0;
                 while (ray_dist < _MAX_DST && steps++ < _MAX_STEP){
-                    //output_color.r = steps / _MAX_STEP;
-                    surface_dist = clamp(de(position), 0, _MAX_DST);
-                    //output_color.r = surface_dist / 100000000;
+                    // surface_dist = clamp(de(position), 0, _MAX_DST);
+                    surface_dist = de(position);
                     if (surface_dist <= _EPSILON) {
                         //output_color.r = surface_dist;
                         float3 normal = estimate_normal(position + direction * surface_dist);
-                        output_color.xyz = normal;
+                        float4 col = color(position, direction, normal, ray_dist + surface_dist, steps);
+                        output_color = col;
                         break;
                     }
                     position += direction * surface_dist;
                     ray_dist += surface_dist;
                 }
+                if (ray_dist >= _MAX_DST || steps >= _MAX_STEP) {
+                    output_color = _FogColor;
+                }
                 return output_color;
             }
+
 
             
             // The fragment shader definition.            
