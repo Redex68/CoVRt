@@ -426,8 +426,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../FMOD Studio/examples/Examples.fspro
-  sourceBankPath: ../FMOD Studio/examples/Build
+  sourceProjectPath: Assets/Audio/CoVRtAudio/CoVRtAudio.fspro
+  sourceBankPath: Assets/Audio/CoVRtAudio/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -451,13 +451,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
-  - Dialogue_CN
-  - Dialogue_EN
-  - Dialogue_JP
-  - Music
   - SFX
-  - Vehicles
-  - VO
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
