@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
-    public AudioListener listener;
-    AudioSource test;
 
     // Below is not my code. This stuff is just for testing out the 3D sounds. 
     // Source: https://www.youtube.com/watch?v=5Rq8A4H6Nzw 
@@ -52,5 +52,12 @@ public class PlayerController : MonoBehaviour
         // Move player with WASD
         Vector3 mov = player.forward * Input.GetAxis("Vertical") + player.right * Input.GetAxis("Horizontal");
         controller.Move(mov * 0.1f);
+
+        StudioEventEmitter em = transform.GetComponent<StudioEventEmitter>();
+        if (!em.IsPlaying() && mov != Vector3.zero) em.Play();
+        else if (mov == Vector3.zero) em.Stop();
+
+        //if (Input.GetMouseButtonDown(0)) em.Play();
+        //else if (Input.GetMouseButtonDown(1)) RuntimeManager.PlayOneShot(ev, transform.position);
     }
 }

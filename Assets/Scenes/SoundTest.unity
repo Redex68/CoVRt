@@ -351,7 +351,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 80, y: 80, z: 80}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1207583239}
@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 497719110}
   - component: {fileID: 497719111}
   - component: {fileID: 497719114}
+  - component: {fileID: 497719115}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -549,7 +550,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 905240113}
-  listener: {fileID: 0}
+  footsteps:
+    Guid:
+      Data1: 1351040090
+      Data2: 1226153062
+      Data3: -1110218327
+      Data4: -71480532
+    Path: event:/footsteps
   player: {fileID: 905240112}
   mouseSensitivity: 2
 --- !u!114 &497719114
@@ -565,6 +572,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 905240107}
+--- !u!114 &497719115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497719106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1351040090
+      Data2: 1226153062
+      Data3: -1110218327
+      Data4: -71480532
+    Path: event:/footsteps
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &885120835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,11 +1167,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1352288734
-      Data2: 1289239580
-      Data3: 1302944154
-      Data4: 2122619292
-    Path: event:/test
+      Data1: 1663830077
+      Data2: 1176458886
+      Data3: -1118567294
+      Data4: 1668158110
+    Path: event:/drone_hum
   Event: 
   PlayEvent: 1
   StopEvent: 0
