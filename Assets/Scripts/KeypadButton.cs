@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeypadButton : MonoBehaviour
+public class KeypadButton : Interactible
 {
     [SerializeField] Transform startPos, pressedPos;
     [SerializeField] string buttonValue;
@@ -25,19 +25,19 @@ public class KeypadButton : MonoBehaviour
         startColor = rendR.material.color;
     }
 
-    public void OnEntered(ButtonInteractor interactor)
+    public override void OnEntered(ButtonInteractor interactor)
     {
         rendR.material.color = Color.cyan;
         interactor.buttonPress += OnPress;
     }
 
-    public void OnExited(ButtonInteractor interactor)
+    public override void OnExited(ButtonInteractor interactor)
     {
         rendR.material.color = startColor;
         interactor.buttonPress -= OnPress;
     }
 
-    private void OnPress(object sender, EventArgs e)
+    private void OnPress(object sender, ButtonEventArgs e)
     {
         if (animationIndex == -1)
         {

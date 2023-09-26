@@ -5,13 +5,24 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.InputSystem;
 
+public class ButtonEventArgs : EventArgs
+{
+    public ButtonInteractor interactor;
+    public ButtonEventArgs(ButtonInteractor interactor)
+    {
+        this.interactor = interactor;
+    }
+}
+
 public class ButtonInteractor : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("The reference to the action to press Buttons")]
     InputActionReference m_buttonPressAction;
 
-    public event EventHandler buttonPress;
+    public delegate void ButtonEventHandler(object sender, ButtonEventArgs e);
+    public event ButtonEventHandler buttonPress;
+    public event ButtonEventHandler buttonUnpress;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +32,7 @@ public class ButtonInteractor : MonoBehaviour
         if (buttonPressAction != null)
         {
             buttonPressAction.performed += OnButtonPress;
+            buttonPressAction.canceled += OnButtonUnpress;
         }
     }
 
@@ -28,10 +40,10 @@ public class ButtonInteractor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Button"))
         {
-            KeypadButton kpb = other.GetComponent<KeypadButton>();
-            if (kpb != null)
+            Interactible obj = other.GetComponent<Interactible>();
+            if (obj != null)
             {
-                kpb.OnEntered(this);
+                obj.OnEntered(this);
             }
         }
     }
@@ -40,16 +52,20 @@ public class ButtonInteractor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Button"))
         {
-            KeypadButton kpb = other.GetComponent<KeypadButton>();
-            if (kpb != null)
+            Interactible obj = other.GetComponent<Interactible>();
+            if (obj != null)
             {
-                kpb.OnExited(this);
+                obj.OnExited(this);
             }
         }
     }
 
     void OnButtonPress(InputAction.CallbackContext context)
     {
-        buttonPress?.Invoke(this, new EventArgs());
+        buttonPress?.Invoke(this, new ButtonEventArgs(this));
+    }
+    void OnButtonUnpress(InputAction.CallbackContext context)
+    {
+        buttonUnpress?.Invoke(this, new ButtonEventArgs(this));
     }
 }
