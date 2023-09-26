@@ -550,13 +550,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 905240113}
-  footsteps:
-    Guid:
-      Data1: 1351040090
-      Data2: 1226153062
-      Data3: -1110218327
-      Data4: -71480532
-    Path: event:/footsteps
   player: {fileID: 905240112}
   mouseSensitivity: 2
 --- !u!114 &497719114
@@ -1180,9 +1173,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
+  OverrideAttenuation: 1
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 40
 --- !u!1 &1551591013
 GameObject:
   m_ObjectHideFlags: 0

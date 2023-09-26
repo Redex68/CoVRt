@@ -57,7 +57,9 @@ public class PlayerController : MonoBehaviour
         if (!em.IsPlaying() && mov != Vector3.zero) em.Play();
         else if (mov == Vector3.zero) em.Stop();
 
-        //if (Input.GetMouseButtonDown(0)) em.Play();
-        //else if (Input.GetMouseButtonDown(1)) RuntimeManager.PlayOneShot(ev, transform.position);
+        // examples for playing any sound via script
+        if (Input.GetKeyDown(KeyCode.Alpha1)) RuntimeManager.PlayOneShot("event:/beepboop", transform.position);
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) RuntimeManager.PlayOneShot("event:/accessdenied", transform.position);
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) RuntimeManager.PlayOneShot("event:/accessgranted", transform.position);
     }
 }
