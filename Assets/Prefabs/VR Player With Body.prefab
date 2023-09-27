@@ -3607,7 +3607,6 @@ GameObject:
   - component: {fileID: 715411043659849049}
   - component: {fileID: 2343997212336090414}
   - component: {fileID: 5760507531927905766}
-  - component: {fileID: 8247589452107015317}
   m_Layer: 10
   m_Name: Left hand
   m_TagString: Untagged
@@ -3680,27 +3679,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8247589452107015317
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2283129519443323921}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.50000024
-  m_Center: {x: 0.00000005960467, y: 0, z: 0.000000003725292}
 --- !u!1 &2323795353689147224
 GameObject:
   m_ObjectHideFlags: 0
@@ -38760,7 +38738,6 @@ GameObject:
   - component: {fileID: 4645106628899383586}
   - component: {fileID: 5276533367930088727}
   - component: {fileID: 2713986795575524402}
-  - component: {fileID: 7087314898311181648}
   m_Layer: 10
   m_Name: Sphere
   m_TagString: Player
@@ -38833,27 +38810,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7087314898311181648
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2844653531959991223}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.50000024
-  m_Center: {x: 0.00000005960467, y: 0, z: 0.000000003725292}
 --- !u!1 &2930148354363787623
 GameObject:
   m_ObjectHideFlags: 0
@@ -41696,6 +41652,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6170170738424070149}
   - component: {fileID: 7557878111107298389}
+  - component: {fileID: 3763638938906743474}
+  - component: {fileID: 3848742333738621791}
   m_Layer: 9
   m_Name: Poke Interactor
   m_TagString: Untagged
@@ -41786,6 +41744,40 @@ MonoBehaviour:
   m_UIHoverExited:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3763638938906743474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937468197218989453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42dc1f32699a58949b907aab2713865b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_buttonPressAction: {fileID: 3182497602624579305, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!135 &3848742333738621791
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937468197218989453}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 2147483648
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3963102291494984219
 GameObject:
   m_ObjectHideFlags: 0
@@ -42213,7 +42205,6 @@ GameObject:
   - component: {fileID: 3732821847209282223}
   - component: {fileID: 6834496914078698321}
   - component: {fileID: 5770473455493267671}
-  - component: {fileID: 4766299590964787119}
   m_Layer: 10
   m_Name: Capsule
   m_TagString: Player
@@ -42286,29 +42277,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4766299590964787119
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4266645974780977424}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.50000024
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.00000005960467, y: 0, z: 0.000000003725292}
 --- !u!1 &4359793442993570614
 GameObject:
   m_ObjectHideFlags: 0
@@ -42648,6 +42616,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2333320086708389987}
   - component: {fileID: 3464567080414455426}
+  - component: {fileID: 8971458800731397822}
+  - component: {fileID: 5940816079767296973}
   m_Layer: 9
   m_Name: Poke Interactor
   m_TagString: Untagged
@@ -42738,6 +42708,40 @@ MonoBehaviour:
   m_UIHoverExited:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8971458800731397822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464720321266076723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42dc1f32699a58949b907aab2713865b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_buttonPressAction: {fileID: -5030186597788771279, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!135 &5940816079767296973
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464720321266076723}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 2147483648
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4490721404828993673
 GameObject:
   m_ObjectHideFlags: 0
@@ -48251,7 +48255,6 @@ GameObject:
   - component: {fileID: 7322189271909377003}
   - component: {fileID: 1845583205728504818}
   - component: {fileID: 4352744829020383425}
-  - component: {fileID: 5507743385498529097}
   m_Layer: 10
   m_Name: Right hand
   m_TagString: Player
@@ -48324,27 +48327,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5507743385498529097
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7978875530390684182}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.50000024
-  m_Center: {x: 0.00000005960467, y: 0, z: 0.000000003725292}
 --- !u!1 &8094036780358009967
 GameObject:
   m_ObjectHideFlags: 0
