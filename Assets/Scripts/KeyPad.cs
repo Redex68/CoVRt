@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class KeyPad : MonoBehaviour
 {
@@ -32,6 +34,8 @@ public class KeyPad : MonoBehaviour
                 Fail();
             }
         }
+
+        RuntimeManager.PlayOneShot("event:/beepboop", transform.position);
     }
 
     void Update()
@@ -48,6 +52,8 @@ public class KeyPad : MonoBehaviour
         failed = true;
         currentCode = "";
         text.text = "No";
+
+        RuntimeManager.PlayOneShot("event:/accessdenied", transform.position);
     }
 
     void DoReset()
@@ -62,5 +68,7 @@ public class KeyPad : MonoBehaviour
     {
         text.text = "unlock";
         doorUnlocked.SimpleRaise();
+
+        RuntimeManager.PlayOneShot("event:/accessgranted", transform.position);
     }
 }
