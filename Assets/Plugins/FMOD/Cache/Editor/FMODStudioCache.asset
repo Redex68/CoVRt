@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: Assets/Audio/CoVRtAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638313364143910740
+  lastModified: 638313723626269854
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -116,7 +116,7 @@ MonoBehaviour:
   Path: Assets/Audio/CoVRtAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638313364143964681
+  lastModified: 638313723626285558
   FileSizes:
   - Name: Desktop
     Value: 1104
@@ -151,7 +151,7 @@ MonoBehaviour:
   - {fileID: -3726025105455829098}
   StringsBanks:
   - {fileID: -3361298955408060140}
-  cacheTime: 638313691344056631
+  cacheTime: 638313723626358016
   cacheVersion: 131607
 --- !u!114 &282107512418565050
 MonoBehaviour:
@@ -222,7 +222,7 @@ MonoBehaviour:
   Path: Assets/Audio/CoVRtAudio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638313691344056631
+  lastModified: 638313723626358016
   FileSizes:
   - Name: Desktop
     Value: 1666400
