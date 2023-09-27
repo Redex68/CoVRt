@@ -22,7 +22,7 @@ public class KeyPad : MonoBehaviour
     public void AddValue(string value)
     {
         currentCode += value;
-        text.text = "*";
+        text.text += "*";
         if (currentCode.Length >= correctCode.Length)
         {
             if (currentCode == correctCode) 

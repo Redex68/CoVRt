@@ -33,6 +33,21 @@ public class TPBallSummoner : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        var teleportBallUse = m_teleportBallUse != null ? m_teleportBallUse.action : null;
+        if (teleportBallUse != null)
+        {
+            teleportBallUse.performed -= OnUseBall;
+            teleportBallUse.canceled -= OnThrowBall;
+        }
+        var teleportBallRecall = m_teleportBallRecall != null ? m_teleportBallRecall.action : null;
+        if (teleportBallRecall != null)
+        {
+            teleportBallRecall.performed -= OnRecall;
+        }
+    }
+
     void OnUseBall(InputAction.CallbackContext context)
     {
         if (teleportationBallInstance != null)
