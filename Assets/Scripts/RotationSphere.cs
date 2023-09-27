@@ -4,18 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class RotationSphere : Interactible
 {
     Renderer rendR;
     List<ButtonInteractor> currentGrabbers = new();
-    [SerializeField] Transform offset;
+    [SerializeField] Transform offset, winAngle;
     Color startColor;
+    Quaternion lastRot;
+    [NonSerialized] public bool correctRot = false;
+    bool beaten = false;
+    [SerializeField] Lever lever;
+    [SerializeField] GameEvent puzzleDone;
 
     // Start is called before the first frame update
     void Start()
     {
         rendR = GetComponent<Renderer>();
+        lever.leverUpdate += OnLeverUpdate;
         startColor = rendR.material.color;
     }
 
@@ -34,9 +41,9 @@ public class RotationSphere : Interactible
     private void OnPress(object sender, ButtonEventArgs e)
     {
         currentGrabbers.Add(e.interactor);
-        quaternion pastRot = transform.rotation;
+        Quaternion pastRot = transform.rotation;
         transform.LookAt(currentGrabbers[0].transform.position, currentGrabbers.Count == 2 ? currentGrabbers[1].transform.position - transform.position : transform.up);
-        quaternion diff = pastRot * Quaternion.Inverse(transform.rotation);
+        Quaternion diff = pastRot * Quaternion.Inverse(transform.rotation);
         offset.rotation = diff * offset.rotation;
         e.interactor.buttonUnpress += OnUpress;
     }
@@ -46,9 +53,9 @@ public class RotationSphere : Interactible
         currentGrabbers.Remove(e.interactor);
         if (currentGrabbers.Count == 1)
         {
-            quaternion pastRot = transform.rotation;
+            Quaternion pastRot = transform.rotation;
             transform.LookAt(currentGrabbers[0].transform.position, currentGrabbers.Count == 2 ? currentGrabbers[1].transform.position - transform.position : transform.up);
-            quaternion diff = pastRot * Quaternion.Inverse(transform.rotation);
+            Quaternion diff = pastRot * Quaternion.Inverse(transform.rotation);
             offset.rotation = diff * offset.rotation;
         }
         e.interactor.buttonUnpress -= OnUpress;
@@ -56,9 +63,27 @@ public class RotationSphere : Interactible
 
     void Update()
     {
-        if (currentGrabbers.Count != 0)
+        if (currentGrabbers.Count != 0 && !beaten)
         {
-            transform.LookAt(currentGrabbers[0].transform.position, currentGrabbers.Count == 2 ? currentGrabbers[1].transform.position - transform.position : transform.up); 
-        }    
+            transform.LookAt(currentGrabbers[0].transform.position, currentGrabbers.Count == 2 ? currentGrabbers[1].transform.position - transform.position : transform.up);
+            if (Quaternion.Angle(offset.rotation, winAngle.rotation) <= 7) correctRot = true;
+            else correctRot = false;
+            lastRot = offset.rotation;
+        }
+    }
+
+    private void OnLeverUpdate(object sender, LeverEventArgs e)
+    {
+        if (currentGrabbers.Count != 0) currentGrabbers = new();
+        if (correctRot)
+        {
+            offset.rotation = Quaternion.Lerp(offset.rotation, winAngle.rotation, e.value);
+            if (e.value == 1)
+            {
+                beaten = true;
+                rendR.material.color = new Color(0, 1, 0, 0.5f);
+                puzzleDone.SimpleRaise();
+            }
+        }
     }
 }
