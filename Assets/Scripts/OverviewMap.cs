@@ -19,6 +19,7 @@ public class OverviewMap : MonoBehaviour
 
     public void ToggleCamera(int step)
     {
+        Debug.Log(step);
         // increment index by step, loop back around if below/above limits
         camIndex += step;
         if (camIndex < 0) camIndex = floor1Cams.transform.childCount + floor2Cams.transform.childCount - 1;
