@@ -14,6 +14,12 @@ public class GameEvent : ScriptableObject
             listeners[i]?.OnEventRaised(sender, data);
     }
 
+    public void SimpleRaise()
+    {
+        for(int i = listeners.Count - 1; i >= 0; i--)
+            listeners[i]?.OnEventRaised(null, null);
+    }
+
     public void RegisterListener(GameEventListener listener)
     {
         if(!listeners.Contains(listener))

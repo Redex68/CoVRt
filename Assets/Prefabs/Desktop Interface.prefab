@@ -184,8 +184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -76.565, y: 10.0153}
-  m_SizeDelta: {x: 457.2896, y: 271.2294}
+  m_AnchoredPosition: {x: -85.15731, y: 16.380686}
+  m_SizeDelta: {x: 490.6638, y: 298.8377}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8168034029442013486
 CanvasRenderer:
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 93d23c2d42dd0f44b9760f591c2ee14a, type: 3}
+  m_Texture: {fileID: 2800000, guid: a2317fa0823f5694fb5dd3617b4f95b8, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -434,7 +434,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1001427509388319990
 GameObject:
@@ -519,7 +531,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1058070684157769443
 GameObject:
@@ -731,7 +755,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1692069887816078105
 GameObject:
@@ -1021,7 +1057,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1806311445650900535
 GameObject:
@@ -1679,6 +1727,7 @@ GameObject:
   - component: {fileID: 3175710321954159537}
   - component: {fileID: 1768329169614510244}
   - component: {fileID: 5072081286550132122}
+  - component: {fileID: 8884909415678855825}
   m_Layer: 0
   m_Name: Desktop Interface
   m_TagString: Untagged
@@ -1699,6 +1748,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7587578573130933626}
+  - {fileID: 1426593827370273260}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1769,6 +1819,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8884909415678855825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2663098747622440184}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ffd62737ea9714c9c7d1d5691d3090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenu: {fileID: 2178108103842189697}
 --- !u!1 &2879656735806841135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,7 +2124,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &3307732252768485040
 GameObject:
@@ -2551,15 +2626,15 @@ RectTransform:
   m_GameObject: {fileID: 3732371137084899516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1237, y: 1.1237, z: 1.1237}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1445723923097894398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -74.316925, y: 1.0574}
-  m_SizeDelta: {x: 384.2477, y: 221.9261}
+  m_AnchoredPosition: {x: -85.75594, y: 16.68302}
+  m_SizeDelta: {x: 434.458, y: 262.3393}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8230548754713620135
 CanvasRenderer:
@@ -2589,7 +2664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 9978c154ae7ad35448c32498c0d83940, type: 2}
+  m_Texture: {fileID: 8600000, guid: c369024a2fe9ebf4ba591dc1900bc5b6, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3003,7 +3078,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3812023399165981977}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: StepCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4548943934564915735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,7 +3499,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &5042575830646875206
 GameObject:
@@ -3507,7 +3606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7587578573130933626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4224,7 +4323,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &5869024812409029243
 GameObject:
@@ -4671,7 +4782,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &6461438946124258983
 GameObject:
@@ -4943,7 +5066,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5668345731058264252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: StepCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6671046853137309851
 GameObject:
   m_ObjectHideFlags: 0
@@ -5472,7 +5607,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &7459747409631012974
 GameObject:
@@ -6408,7 +6555,19 @@ MonoBehaviour:
   m_Group: {fileID: 4292529798137936534}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DesktopCameraManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &9194064885223449218
 GameObject:
@@ -6486,3 +6645,118 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &8257838506698633473
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7846808426680927824}
+    m_Modifications:
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828256267578220672, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: m_Name
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100087131455647245, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: escapeMenu
+      value: 
+      objectReference: {fileID: 8884909415678855825}
+    - target: {fileID: 8100087131455647245, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+      propertyPath: DefaultInterface
+      value: 
+      objectReference: {fileID: 5120334129961967518}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+--- !u!224 &1426593827370273260 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7013788907271354605, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+  m_PrefabInstance: {fileID: 8257838506698633473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2178108103842189697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7828256267578220672, guid: 6e3b6fbed5d51e7478e92c8a8d54a9e2, type: 3}
+  m_PrefabInstance: {fileID: 8257838506698633473}
+  m_PrefabAsset: {fileID: 0}
