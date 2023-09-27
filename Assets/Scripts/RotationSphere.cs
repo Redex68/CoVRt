@@ -34,9 +34,9 @@ public class RotationSphere : Interactible
     private void OnPress(object sender, ButtonEventArgs e)
     {
         currentGrabbers.Add(e.interactor);
-        quaternion pastRot = transform.rotation;
+        Quaternion pastRot = transform.rotation;
         transform.LookAt(currentGrabbers[0].transform.position, currentGrabbers.Count == 2 ? currentGrabbers[1].transform.position - transform.position : transform.up);
-        quaternion diff = pastRot * Quaternion.Inverse(transform.rotation);
+        Quaternion diff = pastRot * Quaternion.Inverse(transform.rotation);
         offset.rotation = diff * offset.rotation;
         e.interactor.buttonUnpress += OnUpress;
     }
@@ -46,9 +46,9 @@ public class RotationSphere : Interactible
         currentGrabbers.Remove(e.interactor);
         if (currentGrabbers.Count == 1)
         {
-            quaternion pastRot = transform.rotation;
+            Quaternion pastRot = transform.rotation;
             transform.LookAt(currentGrabbers[0].transform.position, currentGrabbers.Count == 2 ? currentGrabbers[1].transform.position - transform.position : transform.up);
-            quaternion diff = pastRot * Quaternion.Inverse(transform.rotation);
+            Quaternion diff = pastRot * Quaternion.Inverse(transform.rotation);
             offset.rotation = diff * offset.rotation;
         }
         e.interactor.buttonUnpress -= OnUpress;
