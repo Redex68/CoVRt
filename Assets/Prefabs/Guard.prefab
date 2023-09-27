@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 7201331677757922977}
   - component: {fileID: 6902876892693350392}
   - component: {fileID: 2764935612840746939}
+  - component: {fileID: 8291227725654658847}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -184,6 +185,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2764935612840746939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +206,37 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8291227725654658847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509429552545842525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1663830077
+      Data2: 1176458886
+      Data3: -1118567294
+      Data4: 1668158110
+    Path: event:/drone_hum
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1932437523623600026
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +591,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3762
+  m_VersionIndex: 3768
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
