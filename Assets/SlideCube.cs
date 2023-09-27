@@ -11,10 +11,10 @@ public class SlideCube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lever.leverUpdate += OnUpdate;
+        lever.leverUpdate += OnLeverUpdate;
     }
 
-    private void OnUpdate(object sender, LeverEventArgs e)
+    private void OnLeverUpdate(object sender, LeverEventArgs e)
     {
         Debug.Log(e.value);
         transform.position = Vector3.Lerp(startPos.position, endPos.position, e.value);

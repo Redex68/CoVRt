@@ -25,6 +25,8 @@ public class Lever : Interactible
     ButtonInteractor currentGrabber = new();
     [SerializeField] Transform handleBase, lever, startRot, endRot;
     [SerializeField] float resetTime;
+    [SerializeField] RotationSphere sphere;
+    bool finished = false;
     Quaternion animationStartPos, lastRot;
     float resetTimer;
     Vector3 offset;
@@ -66,12 +68,16 @@ public class Lever : Interactible
 
     void Update()
     {
+        if (finished) return;
         lastRot = handleBase.rotation;
         if (currentGrabber != null)
         {
             handleBase.LookAt(Vector3.ProjectOnPlane(currentGrabber.transform.position, handleBase.right) + Vector3.Dot(transform.position, handleBase.right) * handleBase.right, Vector3.up);
             if (handleBase.rotation.x < startRot.rotation.x) handleBase.rotation = startRot.rotation;
             else if (handleBase.rotation.x > endRot.rotation.x) handleBase.rotation = endRot.rotation;
+            if (handleBase.rotation.x == endRot.rotation.x && sphere.correctRot) { 
+                finished = true;
+            };
         }
         else if (resetTime != 0 && resetTimer <= resetTime)
         {
