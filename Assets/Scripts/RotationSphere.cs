@@ -16,6 +16,7 @@ public class RotationSphere : Interactible
     [NonSerialized] public bool correctRot = false;
     bool beaten = false;
     [SerializeField] Lever lever;
+    [SerializeField] GameEvent puzzleDone;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +66,6 @@ public class RotationSphere : Interactible
         if (currentGrabbers.Count != 0 && !beaten)
         {
             transform.LookAt(currentGrabbers[0].transform.position, currentGrabbers.Count == 2 ? currentGrabbers[1].transform.position - transform.position : transform.up);
-            Debug.Log(Quaternion.Angle(offset.rotation, winAngle.rotation));
             if (Quaternion.Angle(offset.rotation, winAngle.rotation) <= 7) correctRot = true;
             else correctRot = false;
             lastRot = offset.rotation;
@@ -82,6 +82,7 @@ public class RotationSphere : Interactible
             {
                 beaten = true;
                 rendR.material.color = new Color(0, 1, 0, 0.5f);
+                puzzleDone.SimpleRaise();
             }
         }
     }

@@ -73,9 +73,9 @@ public class Lever : Interactible
         if (currentGrabber != null)
         {
             handleBase.LookAt(Vector3.ProjectOnPlane(currentGrabber.transform.position, handleBase.right) + Vector3.Dot(transform.position, handleBase.right) * handleBase.right, Vector3.up);
-            if (handleBase.rotation.x < startRot.rotation.x) handleBase.rotation = startRot.rotation;
-            else if (handleBase.rotation.x > endRot.rotation.x) handleBase.rotation = endRot.rotation;
-            if (handleBase.rotation.x == endRot.rotation.x && sphere.correctRot) { 
+            if (handleBase.localRotation.x < startRot.localRotation.x) handleBase.localRotation = startRot.localRotation;
+            else if (handleBase.localRotation.x > endRot.localRotation.x) handleBase.localRotation = endRot.localRotation;
+            if (handleBase.localRotation.x == endRot.localRotation.x && sphere.correctRot) { 
                 finished = true;
             };
         }
@@ -86,7 +86,7 @@ public class Lever : Interactible
         }
         if (lastRot != handleBase.rotation)
         {
-            leverUpdate?.Invoke(this, new LeverEventArgs((handleBase.rotation.x - startRot.rotation.x) / (endRot.rotation.x - startRot.rotation.x)));
+            leverUpdate?.Invoke(this, new LeverEventArgs((handleBase.localRotation.x - startRot.localRotation.x) / (endRot.localRotation.x - startRot.localRotation.x)));
         }
     }
 }
