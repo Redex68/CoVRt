@@ -2245,6 +2245,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Other",
+            "id": "7e037937-149b-4c0e-bc06-690e4bf5320a",
+            "actions": [
+                {
+                    "name": "ButtonPressRight",
+                    "type": "Button",
+                    "id": "9d1c7355-b634-40e9-945e-edfa575db1a3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ButtonPressLeft",
+                    "type": "Button",
+                    "id": "6d43d3cb-9222-4673-9b00-b7d381dce448",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0b26bca1-14bf-4bec-9236-a6b8d0de6e3b",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ButtonPressRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05e3971d-d0a5-4ee7-aa37-11a15455ce1a",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ButtonPressLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
