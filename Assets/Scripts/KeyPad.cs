@@ -7,6 +7,7 @@ public class KeyPad : MonoBehaviour
 {
     [SerializeField] string correctCode;
     [SerializeField] TextMeshPro text;
+    [SerializeField] GameEvent doorUnlocked;
     string currentCode = "";
     float resetTime = 0.3f, resetTimer;
     bool failed;
@@ -19,7 +20,7 @@ public class KeyPad : MonoBehaviour
     public void AddValue(string value)
     {
         currentCode += value;
-        text.text = currentCode;
+        text.text = "*";
         if (currentCode.Length >= correctCode.Length)
         {
             if (currentCode == correctCode) 
@@ -60,5 +61,6 @@ public class KeyPad : MonoBehaviour
     void Correct()
     {
         text.text = "unlock";
+        doorUnlocked.SimpleRaise();
     }
 }

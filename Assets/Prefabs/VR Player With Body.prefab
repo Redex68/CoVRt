@@ -38736,7 +38736,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 707
+  m_VersionIndex: 710
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -40685,7 +40685,7 @@ Transform:
   m_GameObject: {fileID: 3474337040825122086}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -26.309, y: 0, z: -25.377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47003,7 +47003,7 @@ GameObject:
   - component: {fileID: 5202258630675473351}
   - component: {fileID: 2649498254833599596}
   - component: {fileID: 5882132827473348684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TunnelingVignette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
