@@ -185,6 +185,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2764935612840746939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,11 +221,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -138315813
-      Data2: 1246448748
-      Data3: 2054310587
-      Data4: 924614616
-    Path: event:/droid_hum_quiet_2
+      Data1: 1663830077
+      Data2: 1176458886
+      Data3: -1118567294
+      Data4: 1668158110
+    Path: event:/drone_hum
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -232,9 +234,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 1
+  OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 40
+  OverrideMaxDistance: 20
 --- !u!1 &1932437523623600026
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +591,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3762
+  m_VersionIndex: 3768
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
