@@ -16,6 +16,9 @@ public class RaycasterCamera : MonoBehaviour
     public LayerMask raycastLayerMask = -1;
     public float rayLength = 100f;
 
+    public int rows = 10;
+    public int cols = 10;
+
     private void OnDrawGizmos()
     {
         if (cameraComponent == null)
@@ -24,10 +27,6 @@ public class RaycasterCamera : MonoBehaviour
         if (cameraComponent != null)
         {
             Vector3 cameraPosition = cameraComponent.transform.position; // Store the camera's position.
-
-            Gizmos.color = Color.yellow;
-            Matrix4x4 matrix = Gizmos.matrix;
-            Gizmos.matrix = transform.localToWorldMatrix;
 
             float near = cameraComponent.nearClipPlane;
             float far = cameraComponent.farClipPlane;
@@ -55,56 +54,71 @@ public class RaycasterCamera : MonoBehaviour
             farBottomLeft = cameraComponent.transform.rotation * farBottomLeft + cameraPosition;
             farBottomRight = cameraComponent.transform.rotation * farBottomRight + cameraPosition;
 
-            //Gizmos.DrawLine(nearTopLeft, nearTopRight);
-            //Gizmos.DrawLine(nearTopRight, nearBottomRight);
-            //Gizmos.DrawLine(nearBottomRight, nearBottomLeft);
-            //Gizmos.DrawLine(nearBottomLeft, nearTopLeft);
-
-            //Gizmos.DrawLine(farTopLeft, farTopRight);
-            //Gizmos.DrawLine(farTopRight, farBottomRight);
-            //Gizmos.DrawLine(farBottomRight, farBottomLeft);
-            //Gizmos.DrawLine(farBottomLeft, farTopLeft);
-            //cameraPosition = transform.worldToLocalMatrix.MultiplyPoint(cameraPosition);
-            Gizmos.DrawLine(cameraPosition, farTopLeft);
-            Gizmos.DrawLine(cameraPosition, farTopRight);
-            Gizmos.DrawLine(cameraPosition, farBottomRight);
-            Gizmos.DrawLine(cameraPosition, farBottomLeft);
+            Debug.DrawLine(cameraPosition, farTopLeft, Color.magenta);
+            Debug.DrawLine(cameraPosition, farTopRight, Color.magenta);
+            Debug.DrawLine(cameraPosition, farBottomRight, Color.magenta);
+            Debug.DrawLine(cameraPosition, farBottomLeft, Color.magenta);
 
             if (castRays)
             {
-                CastRaysFromFrustum(cameraPosition, farTopLeft, farTopRight, farBottomLeft, farBottomRight);
+                //CastRaysFromFrustum1(cameraPosition, farTopLeft, farTopRight, farBottomLeft, farBottomRight);
+                CastRaysFromFrustum2(cameraPosition, new Vector3[] { farTopLeft, farTopRight, farBottomLeft, farBottomRight }, rows, cols);
             }
-
-            Gizmos.matrix = matrix;
         }
     }
 
-    private void CastRaysFromFrustum(Vector3 cameraPosition, params Vector3[] corners)
+    private void CastRaysFromFrustum1(Vector3 cameraPosition, params Vector3[] corners)
     {
 
 
         foreach (Vector3 corner in corners)
         {
-            //Vector3 worldPos = cameraComponent.transform.localToWorldMatrix.MultiplyPoint(corner);
             Vector3 worldPos = corner;
-            //cameraPosition.transform.localToWorldMatrix.MultiplyPoint(cameraPosition);
-
-
 
             Vector3 direction = worldPos - cameraPosition;
 
             if (Physics.Raycast(cameraPosition, direction.normalized, out RaycastHit hit, rayLength, raycastLayerMask))
             {
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(cameraPosition, hit.point);
                 Debug.DrawLine(cameraPosition, hit.point, Color.red);
             }
             else
             {
-                Gizmos.color = Color.green;
-                Gizmos.DrawLine(cameraPosition, cameraPosition + direction.normalized * rayLength);
                 Debug.DrawLine(cameraPosition, cameraPosition + direction.normalized * rayLength, Color.blue);
             }
         }
     }
+
+    // cast rays in a grid from the camera to the far plane
+    private void CastRaysFromFrustum2(Vector3 cameraPosition, Vector3[] corners, int rows, int columns)
+    {
+        // Calculate the direction from the camera to the corners of the far plane.
+        Vector3 topLeft = corners[0];
+        Vector3 topRight = corners[1];
+        Vector3 bottomLeft = corners[2];
+        Vector3 bottomRight = corners[3];
+
+        // Iterate through the grid of points on the far plane.
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+
+                Vector3 worldPos = Vector3.Lerp(Vector3.Lerp(topLeft, topRight, (float)col / (columns - 1)), Vector3.Lerp(bottomLeft, bottomRight, (float)col / (columns - 1)), (float)row / (rows - 1));
+                //Debug.DrawLine(cameraPosition, worldPos, Color.blue);
+
+
+                if (Physics.Raycast(cameraPosition, worldPos - cameraPosition, out RaycastHit hit, rayLength, raycastLayerMask))
+                {
+                    Debug.DrawLine(cameraPosition, hit.point, Color.red);
+                }
+                else
+                {
+                    Debug.DrawLine(cameraPosition, worldPos, Color.green);
+                }
+
+
+            }
+        }
+    }
+
 }
