@@ -774,9 +774,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8385167507474400635}
   - {fileID: 9127440865322107879}
   - {fileID: 9043344937896520098}
-  - {fileID: 8385167507474400635}
   m_Father: {fileID: 5320232232612864735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4517260457942197811
@@ -1146,9 +1146,9 @@ GameObject:
   - component: {fileID: 5281547447919018102}
   - component: {fileID: 2054181305215916731}
   - component: {fileID: 7954428343197132261}
-  - component: {fileID: 1790830009443053189}
+  - component: {fileID: 4083450965820218640}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1240,7 +1240,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1790830009443053189
+--- !u!114 &4083450965820218640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5726482603674928176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eb5629d197c48f46b2058ae4622f4b3, type: 3}
+  m_Script: {fileID: 11500000, guid: ae60149854795ac47913ac8069b640b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 8593690923181155958}
@@ -1267,9 +1267,9 @@ GameObject:
   - component: {fileID: 5369979704430849947}
   - component: {fileID: 9175112419552383865}
   - component: {fileID: 5174040489559038396}
-  - component: {fileID: 2470575372049062429}
+  - component: {fileID: 6675224896536941491}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1361,7 +1361,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2470575372049062429
+--- !u!114 &6675224896536941491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5766524435941359538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eb5629d197c48f46b2058ae4622f4b3, type: 3}
+  m_Script: {fileID: 11500000, guid: ae60149854795ac47913ac8069b640b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 1716513837064370216}
@@ -1837,9 +1837,9 @@ GameObject:
   - component: {fileID: 5160903686760979704}
   - component: {fileID: 8515498202835879401}
   - component: {fileID: 2853016176522426510}
-  - component: {fileID: 2539495450002484715}
+  - component: {fileID: 4326401016354783880}
   m_Layer: 0
-  m_Name: Cube (7)
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1931,7 +1931,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2539495450002484715
+--- !u!114 &4326401016354783880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1940,7 +1940,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8157723899031384051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eb5629d197c48f46b2058ae4622f4b3, type: 3}
+  m_Script: {fileID: 11500000, guid: ae60149854795ac47913ac8069b640b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 2783688106124899743}
@@ -1958,9 +1958,9 @@ GameObject:
   - component: {fileID: 1621768776287262069}
   - component: {fileID: 1044201872729165755}
   - component: {fileID: 4232104727922743628}
-  - component: {fileID: 3461911368159495073}
+  - component: {fileID: 8143579140405882782}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2052,7 +2052,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3461911368159495073
+--- !u!114 &8143579140405882782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8237559678330130529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eb5629d197c48f46b2058ae4622f4b3, type: 3}
+  m_Script: {fileID: 11500000, guid: ae60149854795ac47913ac8069b640b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {fileID: 9127440865322107879}
