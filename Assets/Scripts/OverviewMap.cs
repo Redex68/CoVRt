@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class OverviewMap : MonoBehaviour
 {
     private int camIndex;
-    private int layer;
+    //private int layer;
     public Camera cam;
     public GameObject floor1Cams;
     public GameObject floor2Cams;
-    
+
     // Start is called before the first frame update
     void Start()
     {
