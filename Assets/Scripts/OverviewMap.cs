@@ -14,6 +14,7 @@ public class OverviewMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     public void ToggleCamera(int step)
