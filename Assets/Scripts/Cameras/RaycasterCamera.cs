@@ -24,19 +24,36 @@ public class RaycasterCamera : MonoBehaviour
     // reference to the ui icon for the camera
     public Toggle cameraIcon = null;
 
-    private void Update()
+    private void Start()
     {
-
-        // reset color
-        if (cameraIcon != null)
-            cameraIcon.transform.localScale = new Vector3(1f, 1f, 1f);
 
         // get global camera in the scene
         if (cameraComponent == null)
             cameraComponent = Camera.main;
 
+        StartCoroutine(CastRaysCoroutine());
+
+    }
+    private IEnumerator CastRaysCoroutine()
+    {
+        while (true)
+        {
+            CastRays();
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    private void CastRays()
+    {
+        // reset color
+        if (cameraIcon != null)
+            cameraIcon.transform.localScale = new Vector3(1f, 1f, 1f);
+
+
         if (cameraComponent != null)
         {
+
+            // TODO: Move this to start
             Vector3 cameraPosition = transform.position; // Store the camera's position.
 
             float near = cameraComponent.nearClipPlane;
