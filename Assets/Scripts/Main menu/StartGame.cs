@@ -17,7 +17,9 @@ public class StartGame : MonoBehaviour
         DefaultInterface.SetActive(true);
         MainMenu.SetActive(false);
         escapeMenu.enabled = true;
-        GetComponent<Button>().interactable = false;
+        //GetComponent<Button>().interactable = false;
     }
+
+
 
 }
