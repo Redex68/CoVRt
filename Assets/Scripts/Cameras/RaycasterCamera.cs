@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RaycasterCamera : MonoBehaviour
 {
@@ -21,14 +22,14 @@ public class RaycasterCamera : MonoBehaviour
     public int cols = 10;
 
     // reference to the ui icon for the camera
-    public GameObject cameraIcon = null;
+    public Toggle cameraIcon = null;
 
     private void Update()
     {
 
         // reset color
         if (cameraIcon != null)
-            cameraIcon.GetComponent<SpriteRenderer>().color = Color.white;
+            cameraIcon.transform.localScale = new Vector3(1f, 1f, 1f);
 
         // get global camera in the scene
         if (cameraComponent == null)
@@ -101,9 +102,8 @@ public class RaycasterCamera : MonoBehaviour
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Guard"))
                     {
                         Debug.DrawLine(cameraPosition, hit.point, Color.red);
-                        // change the color of the camera icon
-                        if (cameraIcon != null)
-                            cameraIcon.GetComponent<SpriteRenderer>().color = Color.red;
+                        if (cameraIcon != null && !cameraIcon.isOn)
+                            cameraIcon.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                         Debug.Log("hit");
                         break;
 
