@@ -21,6 +21,8 @@ public class RaycasterCamera : MonoBehaviour
     public int rows = 10;
     public int cols = 10;
 
+    public float updateInterval = 0.5f;
+
     // reference to the ui icon for the camera
     public Toggle cameraIcon = null;
 
@@ -39,7 +41,7 @@ public class RaycasterCamera : MonoBehaviour
         while (true)
         {
             CastRays();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(updateInterval);
         }
     }
 
