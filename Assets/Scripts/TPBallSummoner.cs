@@ -13,7 +13,7 @@ public class TPBallSummoner : MonoBehaviour
     [Tooltip("The reference to the action to recall the teleport ball")]
     InputActionReference m_teleportBallRecall;
 
-    [SerializeField] GameObject teleportationBall, playerInstance, tpBallTarget;
+    [SerializeField] GameObject teleportationBall, playerInstance, playerCamera, tpBallTarget;
     GameObject teleportationBallInstance;
     TeleportationBall tpBallScript;
 
@@ -55,8 +55,11 @@ public class TPBallSummoner : MonoBehaviour
             Vector3? point = tpBallScript.ActivateBall();
             if (point != null)
             {
-                playerInstance.transform.position = (Vector3)point;
+                teleportationBallInstance.transform.position = new();
                 Destroy(teleportationBallInstance);
+                Vector3 offset = playerInstance.transform.position - playerCamera.transform.position;
+                offset.y = 0;
+                playerInstance.transform.position = (Vector3)point + offset;
             }
         }
         else
