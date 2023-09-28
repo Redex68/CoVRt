@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: d9f8dc19612931a4e806a7cacacf8c80, type: 3}
+  m_Texture: {fileID: 2800000, guid: 111103d6addcbc44098af20ec78cfaa9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6864,7 +6864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.7, y: 111.6}
+  m_AnchoredPosition: {x: -29, y: 109.9}
   m_SizeDelta: {x: 15, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8201282759798295707
@@ -8869,7 +8869,7 @@ MonoBehaviour:
         m_MethodName: set_texture
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: d9f8dc19612931a4e806a7cacacf8c80,
+          m_ObjectArgument: {fileID: 2800000, guid: 111103d6addcbc44098af20ec78cfaa9,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
           m_IntArgument: 0
