@@ -5793,7 +5793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cover: {fileID: 5869024812409029243}
   pages:
-  - {fileID: 1577290460, guid: d7624f2c00ab41844b4c336777a0f8ae, type: 2}
+  - {fileID: 2071079023135828830}
   - {fileID: 1817544956903404086}
   - {fileID: 8714984516319022164}
   - {fileID: 7459747409631012974}
@@ -10620,7 +10620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8270177019793411095
 RectTransform:
   m_ObjectHideFlags: 0
