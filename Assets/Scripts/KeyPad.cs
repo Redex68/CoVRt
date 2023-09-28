@@ -12,7 +12,7 @@ public class KeyPad : MonoBehaviour
     [SerializeField] GameEvent doorUnlocked;
     string currentCode = "";
     float resetTime = 0.3f, resetTimer;
-    bool failed;
+    bool reset;
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class KeyPad : MonoBehaviour
 
     void Update()
     {
-        if (failed)
+        if (reset)
         {
             resetTimer += Time.deltaTime;
             if (resetTimer > resetTime) DoReset();
@@ -49,9 +49,9 @@ public class KeyPad : MonoBehaviour
 
     void Fail()
     {
-        failed = true;
+        reset = true;
         currentCode = "";
-        text.text = "No";
+        text.text = "Fail";
 
         RuntimeManager.PlayOneShot("event:/accessdenied", transform.position);
     }
@@ -59,14 +59,15 @@ public class KeyPad : MonoBehaviour
     void DoReset()
     {
         resetTimer = 0;
-        failed = false;
+        reset = false;
         currentCode = "";
         text.text = "";
     }
 
     void Correct()
     {
-        text.text = "unlock";
+        reset = true;
+        text.text = "Unlocked";
         doorUnlocked.SimpleRaise();
 
         RuntimeManager.PlayOneShot("event:/accessgranted", transform.position);

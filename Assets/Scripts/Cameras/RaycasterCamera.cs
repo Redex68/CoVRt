@@ -123,7 +123,7 @@ public class RaycasterCamera : MonoBehaviour
                         Debug.DrawLine(cameraPosition, hit.point, Color.red);
                         if (cameraIcon != null && !cameraIcon.isOn)
                             cameraIcon.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                        Debug.Log("hit");
+                        //Debug.Log("hit");
                         break;
 
                     }
