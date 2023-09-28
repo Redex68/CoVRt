@@ -59,10 +59,10 @@ public class RaycasterCamera : MonoBehaviour
             farBottomLeft = transform.rotation * farBottomLeft + cameraPosition;
             farBottomRight = transform.rotation * farBottomRight + cameraPosition;
 
-            Debug.DrawLine(cameraPosition, farTopLeft, Color.magenta);
-            Debug.DrawLine(cameraPosition, farTopRight, Color.magenta);
-            Debug.DrawLine(cameraPosition, farBottomRight, Color.magenta);
-            Debug.DrawLine(cameraPosition, farBottomLeft, Color.magenta);
+            //Debug.DrawLine(cameraPosition, farTopLeft, Color.magenta);
+            //Debug.DrawLine(cameraPosition, farTopRight, Color.magenta);
+            //Debug.DrawLine(cameraPosition, farBottomRight, Color.magenta);
+            //Debug.DrawLine(cameraPosition, farBottomLeft, Color.magenta);
 
             if (castRays)
             {
