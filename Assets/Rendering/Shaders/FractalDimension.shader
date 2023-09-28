@@ -85,9 +85,9 @@ Shader "Custom/FractalDimension"
 
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(OUT); //Insert
                 
-                VertexPositionInputs spaces = GetVertexPositionInputs(IN.positionOS.xyz);
-                OUT.positionHCS = spaces.positionCS;
-                OUT.positionNDC = spaces.positionNDC;
+                //VertexPositionInputs spaces = GetVertexPositionInputs(IN.positionOS.xyz);
+                OUT.positionHCS = TransformObjectToHClip(IN.positionOS);
+                OUT.positionNDC = ComputeScreenPos(OUT.positionHCS);
                 // Returning the output.
                 return OUT;
             }
@@ -201,7 +201,7 @@ Shader "Custom/FractalDimension"
             {
                 float2 ndc = IN.positionNDC.xy / IN.positionNDC.w; // This should let us determine what direction to raymarch in
                 ndc = (ndc - 0.5) * 2; // because OF COURSE "normalized device coordinates" are not normalized device coordinates
-
+                //return half4(ndc, 0, 1);
                 // create a ray
                 // Taken from Sebastian Lague's raymarching video
                 float3 origin;
@@ -216,7 +216,13 @@ Shader "Custom/FractalDimension"
                     default:
                         origin = mul(unity_CameraToWorld, float4(0.0, 0.0, 0.0, 1.0)).xyz; break; // these seeem to be the same when the origin is the same for all triangles
                 }    
-                float3 direction = mul(transpose(unity_CameraInvProjection), float4(flip * ndc, 0.0, 1.0)).xyz;
+                float4x4 invProj = unity_CameraInvProjection;//UNITY_MATRIX_P;
+                //return half4(invProj[3].xyz, 1.0);
+                // invProj[0][3] = 0;
+                // invProj[1][3] = 0;
+                // invProj[2][3] = 0;
+                invProj[3].xyz = float3(0,0,0);
+                float3 direction = mul(invProj, float4(flip * ndc, 0.0, 1.0)).xyz;
                 direction = mul(unity_CameraToWorld, float4(direction, 0.0)).xyz;
                 //direction = mul(unity_WorldToCamera, float4(direction, 0.0)).xyz;
                 direction = normalize(direction);
