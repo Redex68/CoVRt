@@ -1515,6 +1515,7 @@ MonoBehaviour:
   teleportationBall: {fileID: 8336349875207410068, guid: 17f44ba9b817b204a8f6e5d47f4039dc,
     type: 3}
   playerInstance: {fileID: 3474337040825122086}
+  playerCamera: {fileID: 8759332181077168526}
   tpBallTarget: {fileID: 7100045452617145451}
 --- !u!1 &2283129519443323921
 GameObject:

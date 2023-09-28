@@ -338,6 +338,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6451363145454096672, guid: 95da7d3fb17b510478289277a40fefb1,
         type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 576025294}
+    - target: {fileID: 6451363145454096672, guid: 95da7d3fb17b510478289277a40fefb1,
+        type: 3}
+      propertyPath: playerInstance
+      value: 
+      objectReference: {fileID: 1059661258}
+    - target: {fileID: 6451363145454096672, guid: 95da7d3fb17b510478289277a40fefb1,
+        type: 3}
       propertyPath: m_teleportBallRecall
       value: 
       objectReference: {fileID: -8305153006046197033, guid: c348712bda248c246b8c49b3db54643f,
@@ -555,6 +565,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.01
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &576025294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8759332181077168526, guid: 95da7d3fb17b510478289277a40fefb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 277525302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &632303686
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +689,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1059661258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1305095974656776978, guid: 95da7d3fb17b510478289277a40fefb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 277525302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1566329237
 GameObject:
   m_ObjectHideFlags: 0
