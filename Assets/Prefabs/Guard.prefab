@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7330400477088688330}
   - component: {fileID: 3393933037902760599}
   - component: {fileID: 622302136939727449}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 6902876892693350392}
   - component: {fileID: 2764935612840746939}
   - component: {fileID: 8291227725654658847}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1209808941844681694}
   - component: {fileID: 647386172317260396}
   - component: {fileID: 8152863443353225026}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: MapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 5153995926510565903}
   - component: {fileID: 325393883512125181}
   - component: {fileID: 2628042316453150866}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
