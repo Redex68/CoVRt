@@ -14,7 +14,6 @@ public class OverviewMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        layer = 6;
     }
 
     public void ToggleCamera(int step)

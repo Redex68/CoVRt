@@ -58,7 +58,9 @@ Shader "Custom/FractalDimension"
             {
                 // The positionOS variable contains the vertex positions in object
                 // space.
-                float4 positionOS   : POSITION;                 
+                float4 positionOS   : POSITION;
+                // Make it work in VR
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct Varyings
@@ -66,6 +68,8 @@ Shader "Custom/FractalDimension"
                 // The positions in this struct must have the SV_POSITION semantic.
                 float4 positionHCS  : SV_POSITION; 
                 float4 positionNDC  : TEXCOORD0;
+                // Make it work in VR
+                UNITY_VERTEX_OUTPUT_STEREO
             };            
 
             // The vertex shader definition with properties defined in the Varyings 
@@ -75,7 +79,12 @@ Shader "Custom/FractalDimension"
             {
                 // Declaring the output object (OUT) with the Varyings struct.
                 Varyings OUT;
+                // Make it work in VR
+                UNITY_SETUP_INSTANCE_ID(IN); //Insert
+                //UNITY_INITIALIZE_OUTPUT(Varyings, OUT); //Insert
 
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(OUT); //Insert
+                
                 VertexPositionInputs spaces = GetVertexPositionInputs(IN.positionOS.xyz);
                 OUT.positionHCS = spaces.positionCS;
                 OUT.positionNDC = spaces.positionNDC;
@@ -207,7 +216,7 @@ Shader "Custom/FractalDimension"
                     default:
                         origin = mul(unity_CameraToWorld, float4(0.0, 0.0, 0.0, 1.0)).xyz; break; // these seeem to be the same when the origin is the same for all triangles
                 }    
-                float3 direction = mul(unity_CameraInvProjection, float4(flip * ndc, 0.0, 1.0)).xyz;
+                float3 direction = mul(transpose(unity_CameraInvProjection), float4(flip * ndc, 0.0, 1.0)).xyz;
                 direction = mul(unity_CameraToWorld, float4(direction, 0.0)).xyz;
                 //direction = mul(unity_WorldToCamera, float4(direction, 0.0)).xyz;
                 direction = normalize(direction);
