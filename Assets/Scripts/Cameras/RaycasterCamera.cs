@@ -121,8 +121,8 @@ public class RaycasterCamera : MonoBehaviour
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Guard"))
                     {
                         Debug.DrawLine(cameraPosition, hit.point, Color.red);
-                        if (cameraIcon != null && !cameraIcon.isOn)
-                            cameraIcon.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                        if (cameraIcon != null) //&& !cameraIcon.isOn)
+                            cameraIcon.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
                         //Debug.Log("hit");
                         break;
 
