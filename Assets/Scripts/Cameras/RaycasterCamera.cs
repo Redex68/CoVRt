@@ -4,6 +4,7 @@ It should not go through walls
 It should have an option to visualize the FOV with gizmos
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,15 @@ public class RaycasterCamera : MonoBehaviour
     public int rows = 10;
     public int cols = 10;
 
-    private void OnDrawGizmos()
+    // reference to the ui icon for the camera
+    public GameObject cameraIcon = null;
+
+    private void Update()
     {
+
+        // reset color
+        if (cameraIcon != null)
+            cameraIcon.GetComponent<SpriteRenderer>().color = Color.white;
 
         // get global camera in the scene
         if (cameraComponent == null)
@@ -67,6 +75,7 @@ public class RaycasterCamera : MonoBehaviour
     // cast rays in a grid from the camera to the far plane
     private void CastRaysFromFrustum(Vector3 cameraPosition, Vector3[] corners, int rows, int columns)
     {
+
         // Calculate the direction from the camera to the corners of the far plane.
         Vector3 topLeft = corners[0];
         Vector3 topRight = corners[1];
@@ -92,10 +101,16 @@ public class RaycasterCamera : MonoBehaviour
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Guard"))
                     {
                         Debug.DrawLine(cameraPosition, hit.point, Color.red);
+                        // change the color of the camera icon
+                        if (cameraIcon != null)
+                            cameraIcon.GetComponent<SpriteRenderer>().color = Color.red;
+                        Debug.Log("hit");
+                        break;
+
                     }
                     else
                     {
-                        Debug.DrawLine(cameraPosition, finalPosition, Color.green);
+                        Debug.DrawLine(cameraPosition, hit.point, Color.green);
                     }
                 }
                 else // if it doesn't hit anything
