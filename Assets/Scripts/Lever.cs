@@ -22,7 +22,7 @@ public class Lever : Interactible
     public event LeverEventHandler leverUpdate;
 
     Renderer rendR;
-    ButtonInteractor currentGrabber = new();
+    ButtonInteractor currentGrabber = null;// new();
     [SerializeField] Transform handleBase, lever, startRot, endRot;
     [SerializeField] float resetTime;
     [SerializeField] RotationSphere sphere;
