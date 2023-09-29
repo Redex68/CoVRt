@@ -2225,7 +2225,7 @@
                 {
                     "name": "",
                     "id": "375e5b01-60ec-42d1-a8ce-f03e4c8988ce",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "path": "<XRController>{RightHand}/primary2DAxis",
                     "interactions": "Sector(directions=1)",
                     "processors": "",
                     "groups": "Generic XR Controller",
@@ -2236,7 +2236,7 @@
                 {
                     "name": "",
                     "id": "75e28420-aa5e-4773-9606-6ecf563a63d2",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "path": "<XRController>{RightHand}/primary2DAxis",
                     "interactions": "Sector(directions=2)",
                     "processors": "",
                     "groups": "Generic XR Controller",

@@ -18,6 +18,7 @@ public class GuardSpotting : MonoBehaviour
     [SerializeField]
     /// <summary> The layers the spot raycast can hit </summary>
     LayerMask mask;
+    [SerializeField] float spotDistance = 50.0f;
 
     private float spotMeter = 0.0f;
     private bool spotting = false;
@@ -55,7 +56,7 @@ public class GuardSpotting : MonoBehaviour
             foreach (SpottableObject spottable in spottableObjects.spottables)
             {
                 if(ObjectIsInFront(spottable.obj)
-                    && Physics.Raycast(transform.position, spottable.obj.transform.position - transform.position, out RaycastHit hitInfo, 300.0f, mask)
+                    && Physics.Raycast(transform.position, spottable.obj.transform.position - transform.position, out RaycastHit hitInfo, spotDistance, mask)
                     && hitInfo.transform.gameObject == spottable.obj
                 )
                 {

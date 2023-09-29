@@ -52,6 +52,18 @@ public class TPBallSummoner : MonoBehaviour
     {
         if (teleportationBallInstance != null)
         {
+            Destroy(teleportationBallInstance);
+        }
+        teleportationBallInstance = Instantiate(teleportationBall);
+        teleportationBallInstance.transform.position = tpBallTarget.transform.position;
+        tpBallScript = teleportationBallInstance.GetComponent<TeleportationBall>();
+        tpBallScript.target = tpBallTarget.transform;
+    }
+
+    void OnRecall(InputAction.CallbackContext context)
+    {
+        if (teleportationBallInstance != null)
+        {
             Vector3? point = tpBallScript.ActivateBall();
             if (point != null)
             {
@@ -61,21 +73,6 @@ public class TPBallSummoner : MonoBehaviour
                 offset.y = 0;
                 playerInstance.transform.position = (Vector3)point + offset;
             }
-        }
-        else
-        {
-            teleportationBallInstance = Instantiate(teleportationBall);
-            teleportationBallInstance.transform.position = tpBallTarget.transform.position;
-            tpBallScript = teleportationBallInstance.GetComponent<TeleportationBall>();
-            tpBallScript.target = tpBallTarget.transform;
-        }
-    }
-
-    void OnRecall(InputAction.CallbackContext context)
-    {
-        if (teleportationBallInstance != null)
-        {
-            Destroy(teleportationBallInstance);
         }
     }
 
