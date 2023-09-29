@@ -9,6 +9,8 @@ public class TeleportationBall : MonoBehaviour
 {
     [NonSerialized] public Transform target;
     [SerializeField] LayerMask GroundLayer;
+    [SerializeField] float despawnTime;
+    float despawnTimer;
     Vector3 lastPos;
     Rigidbody rb;
 
@@ -20,6 +22,8 @@ public class TeleportationBall : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        despawnTimer += Time.deltaTime;
+        if (despawnTimer >= despawnTime) Destroy(this);
         if (target != null)
         {
             lastPos = transform.position;
