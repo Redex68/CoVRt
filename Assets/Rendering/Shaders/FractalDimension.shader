@@ -10,6 +10,7 @@ Shader "Custom/FractalDimension"
         [IntRange] _MAX_STEP ("Max Steps", Range(50, 400)) = 150 
         [PowerSlider(10)] _EPSILON ("Epsilon", Range(0.0000001, 0.001)) = 0.0001
         _Scale ("Fractal scale", Range(1,2)) = 1.3
+        _RepetitionScale ("Repetition scale", Range(1, 100)) = 1
         [KeywordEnum(Fixed, OW, WO, WS)] _OriginMode ("Origin mode", Integer) = 0
         _Origin ("Origin if Origin mode is 0", Vector) = (1, 1, 1, 0)
         [Toggle] _FlipMode ("Flip?", Integer) = 0
@@ -34,10 +35,11 @@ Shader "Custom/FractalDimension"
     {
         // SubShader Tags define when and under which conditions a SubShader block or
         // a pass is executed.
-        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalRenderPipeline" }
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
 
         Pass
         {
+            Name "RayMarching pass"
             // The HLSL code block. Unity SRP uses the HLSL language.
             HLSLPROGRAM
             // This line defines the name of the vertex shader. 
@@ -85,9 +87,9 @@ Shader "Custom/FractalDimension"
 
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(OUT); //Insert
                 
-                VertexPositionInputs spaces = GetVertexPositionInputs(IN.positionOS.xyz);
-                OUT.positionHCS = spaces.positionCS;
-                OUT.positionNDC = spaces.positionNDC;
+                //VertexPositionInputs spaces = GetVertexPositionInputs(IN.positionOS.xyz);
+                OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
+                OUT.positionNDC = ComputeScreenPos(OUT.positionHCS);
                 // Returning the output.
                 return OUT;
             }
@@ -96,6 +98,7 @@ Shader "Custom/FractalDimension"
             float _EPSILON;
             uint _MAX_STEP;
             float _Scale;
+            float _RepetitionScale;
             uint _OriginMode;
             float3 _Origin;
             uint _FlipMode;
@@ -137,7 +140,7 @@ Shader "Custom/FractalDimension"
             }
             float4 color(float3 position, float3 direction, float3 normal, float distance, uint steps) {
                 
-                float light = normalize(_LightPosition - position);
+                float3 light = normalize(_LightPosition - position);
                 float ca = saturate(dot(normal*0.5+0.5, light));
                 float cb = saturate(float(steps) / _MAX_STEP);
                 float4 col = saturate(lerp(_MixColorA, _MixColorB, cb));
@@ -201,7 +204,7 @@ Shader "Custom/FractalDimension"
             {
                 float2 ndc = IN.positionNDC.xy / IN.positionNDC.w; // This should let us determine what direction to raymarch in
                 ndc = (ndc - 0.5) * 2; // because OF COURSE "normalized device coordinates" are not normalized device coordinates
-
+                //return half4(ndc, 0, 1);
                 // create a ray
                 // Taken from Sebastian Lague's raymarching video
                 float3 origin;
@@ -210,13 +213,20 @@ Shader "Custom/FractalDimension"
                     case 0:
                         origin = _Origin; break; // use static origin
                     case 1:
-                        origin = mul(_WorldSpaceCameraPos, unity_WorldToObject); break; // these seem to be the same when the origin is the same for all triangles
+                        origin = mul(float4(_WorldSpaceCameraPos,0), unity_WorldToObject).xyz; break; // these seem to be the same when the origin is the same for all triangles
                     case 2: 
-                        origin = mul(unity_WorldToObject, _WorldSpaceCameraPos); break; // these seem to be the same when the origin is the same for all triangles
+                        origin = mul(unity_WorldToObject, float4(_WorldSpaceCameraPos,0)).xyz; break; // these seem to be the same when the origin is the same for all triangles
                     default:
                         origin = mul(unity_CameraToWorld, float4(0.0, 0.0, 0.0, 1.0)).xyz; break; // these seeem to be the same when the origin is the same for all triangles
                 }    
-                float3 direction = mul(transpose(unity_CameraInvProjection), float4(flip * ndc, 0.0, 1.0)).xyz;
+                float4x4 invProj = unity_CameraInvProjection;//UNITY_MATRIX_P;
+                //return half4(invProj[3].xyz, 1.0);
+                // invProj[0][3] = 0;
+                // invProj[1][3] = 0;
+                // invProj[2][3] = 0;
+                invProj[3].xyz = float3(0,0,0);
+                origin /= _RepetitionScale;
+                float3 direction = mul(invProj, float4(flip * ndc, 0.0, 1.0)).xyz;
                 direction = mul(unity_CameraToWorld, float4(direction, 0.0)).xyz;
                 //direction = mul(unity_WorldToCamera, float4(direction, 0.0)).xyz;
                 direction = normalize(direction);
