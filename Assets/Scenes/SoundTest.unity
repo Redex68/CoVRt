@@ -1072,6 +1072,7 @@ GameObject:
   - component: {fileID: 1207583238}
   - component: {fileID: 1207583237}
   - component: {fileID: 1207583240}
+  - component: {fileID: 1207583241}
   m_Layer: 0
   m_Name: SoundPlayer
   m_TagString: Untagged
@@ -1152,7 +1153,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207583234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -1172,10 +1173,33 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   AllowNonRigidbodyDoppler: 0
-  Params: []
+  Params:
+  - Name: Volume
+    Value: 200
   OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 40
+--- !u!114 &1207583241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207583234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c38167f35394c49a52ec50340f385b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvent:
+    Guid:
+      Data1: 1663830077
+      Data2: 1176458886
+      Data3: -1118567294
+      Data4: 1668158110
+    Path: event:/drone_hum
+  volume: 100
+  playOnStart: 1
 --- !u!1 &1551591013
 GameObject:
   m_ObjectHideFlags: 0

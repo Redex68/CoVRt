@@ -7,6 +7,7 @@ using FMOD.Studio;
 public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
+    public EventInstance ev;
 
     // Below is not my code. This stuff is just for testing out the 3D sounds. 
     // Source: https://www.youtube.com/watch?v=5Rq8A4H6Nzw 
@@ -56,6 +57,8 @@ public class PlayerController : MonoBehaviour
         StudioEventEmitter em = transform.GetComponent<StudioEventEmitter>();
         if (!em.IsPlaying() && mov != Vector3.zero) em.Play();
         else if (mov == Vector3.zero) em.Stop();
+        ev.setVolume(100);
+        
 
         // examples for playing any sound via script
         if (Input.GetKeyDown(KeyCode.Alpha1)) RuntimeManager.PlayOneShot("event:/beepboop", transform.position);
