@@ -205,7 +205,7 @@ Shader "Custom/FractalDimension"
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(IN);
                 float2 ndc = IN.positionNDC.xy / IN.positionNDC.w; // This should let us determine what direction to raymarch in
                 ndc = (ndc - 0.5) * 2; // because OF COURSE "normalized device coordinates" are not normalized device coordinates
-#if UNITY_SINGLGE_PASS_STEREO // This isn't happening.....
+#if UNITY_SINGLGE_PASS_STEREO 
                 float4 scaleOffset = unity_StereoScaleOffset[unity_StereoEyeIndex];
                 //return half4(scaleOffset.zw, 0, 0);
                 ndc = (ndc - scaleOffset.zw) / (scaleOffset.xy);
