@@ -27,14 +27,12 @@ public class SoundController : MonoBehaviour
     // occlusion stuff
     private StudioListener listener;
     private int lineCastsObstructed;
-    private int totalLineCasts;
 
     // Start is called before the first frame update
     void Start()
     {
         // find the audio listener in the scene
         listener = FindObjectOfType<StudioListener>();
-        totalLineCasts = 3;
     }
 
     // Update is called once per frame
@@ -44,10 +42,8 @@ public class SoundController : MonoBehaviour
         emitter.EventInstance.setVolume((float)volume / 100);
         emitter.EventInstance.setPitch((float)pitch / 100);
 
-        emitter.EventInstance.setReverbLevel(0, (float)reverb / 100);
-        emitter.EventInstance.setReverbLevel(1, (float)reverb / 100);
-        emitter.EventInstance.setReverbLevel(2, (float)reverb / 100);
-        emitter.EventInstance.setReverbLevel(3, (float)reverb / 100);
+        // set reverb level (0 - no reverb, 100 - full reverb
+        emitter.SetParameter("Reverb", (float)reverb / 100);
 
         if (useOcclusion) Occlusion();
     }
@@ -67,6 +63,7 @@ public class SoundController : MonoBehaviour
         emitter.EventInstance.setPaused(!paused);
     }
 
+    // Perform sound occlusion by casting lines between the sound source and listener
     private void Occlusion()
     {
         // NOTE: only occlude if sound can be heard (is close enough)
@@ -74,10 +71,16 @@ public class SoundController : MonoBehaviour
 
         lineCastsObstructed = 0;
 
+        // lines from listener (left, middle & right) to source
         OcclusionLineCast(listener.transform.position, transform.position);
         OcclusionLineCast(CalculatePoint(listener.transform.position, transform.position, occlusionSpread, true), transform.position);
         OcclusionLineCast(CalculatePoint(listener.transform.position, transform.position, occlusionSpread, false), transform.position);
 
+        // lines from source (left & right) to listener
+        OcclusionLineCast(CalculatePoint(transform.position, listener.transform.position, occlusionSpread, true), listener.transform.position);
+        OcclusionLineCast(CalculatePoint(transform.position, listener.transform.position, occlusionSpread, false), listener.transform.position);
+
+        int totalLineCasts = 5;
         emitter.SetParameter("Occlusion", (float)lineCastsObstructed / totalLineCasts);
         emitter.EventInstance.setParameterByName("Occlusion", (float)lineCastsObstructed / totalLineCasts);
     }
@@ -102,6 +105,7 @@ public class SoundController : MonoBehaviour
         return new Vector3(x, a.y, z);
     }
 
+    // Do a line cast for the occlusion
     private void OcclusionLineCast(Vector3 listener, Vector3 sound)
     {
         RaycastHit hit;
