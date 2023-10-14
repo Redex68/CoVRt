@@ -8,59 +8,116 @@ public class DesktopCameraManager : MonoBehaviour
 
     // inputSystem embedded actions
     [SerializeField]
-    private InputAction nextCamera;
+    private InputAction nextCameraAction;
     [SerializeField]
-    private InputAction prevCamera;
-    
-    
-    
-    private Camera mainCamera;
+    private InputAction prevCameraAction;
 
     [SerializeField]
-    private Transform[] cameraPoses;
+    [Tooltip("Set at runtime")]
+    private CameraPoses cameraPoses = null;
+    [SerializeField]
+    [Tooltip("Set at runtime")]
+    private OverviewMap overviewMap = null;
 
     [SerializeField]
-    private int currentCamera = 0;
-    void Awake() {
-        // get a reference to the camera
-        mainCamera = GetComponentInChildren<Camera>();
-        // bind callbacks for input system
-        nextCamera.performed += _ => {StepCamera(1);};
-        prevCamera.performed += _ => {StepCamera(-1);};
-    }
+    [Tooltip("Set at runtime")]
 
-    /*
-    StepCamera - changes the current camera position to the previous or next position.
-    @param step - 1 to move to the next camera, -1 to go to the previous camera.
-    */
-    public void StepCamera(int step) {
-        currentCamera = (currentCamera + step) % cameraPoses.Length;
-        // because % is not euclidean modulo in c# ;_;
-        if (currentCamera < 0) currentCamera += cameraPoses.Length;
-    }
+    private Camera mainDesktopCamera = null;
 
-    /// <summary>
-    /// Moves the camera to the position at the provided index
-    /// </summary>
-    /// <param name="index">the index of the position to move camera to</param>
-    public void MoveCamera(int index)
+    [SerializeField]
+    private string currentCamera = null;
+    [SerializeField]
+    private int currentCameraIndex = 0;
+
+    void Start()
     {
-        if (index >= 0 && index < cameraPoses.Length) currentCamera = index;
+        cameraPoses = FindObjectOfType<CameraPoses>(true);
+        if (cameraPoses == null)
+        {
+            Debug.LogError("CameraPoses not found in DesktopCameraManager");
+            return;
+        }
+        overviewMap = FindObjectOfType<OverviewMap>(true);
+        if (overviewMap == null)
+        {
+            Debug.LogError("OverviewMap not found in DesktopCameraManager");
+            return;
+        }
+
+        mainDesktopCamera = GameObject.FindGameObjectWithTag("MainDesktopCamera").GetComponent<Camera>();
+        if (mainDesktopCamera == null)
+        {
+            Debug.LogError("MainDesktopCamera not found in DesktopCameraManager");
+            return;
+        }
+
+        // set the current camera to the first camera
+        currentCamera = cameraPoses.GetName(currentCameraIndex);
+
+        // bind callbacks for input system
+        nextCameraAction.performed += _ => { StepCameraForward(); };
+        prevCameraAction.performed += _ => { StepCameraBackward(); };
+    }
+
+    void OnEnable()
+    {
+        nextCameraAction.Enable();
+        prevCameraAction.Enable();
+    }
+    void OnDisable()
+    {
+        nextCameraAction.Disable();
+        prevCameraAction.Disable();
+    }
+
+
+    public void StepCameraForward()
+    {
+        int total = cameraPoses.Count;
+        SetCurrent((currentCameraIndex + 1) % total);
+    }
+
+    public void StepCameraBackward()
+    {
+        int total = cameraPoses.Count;
+
+        int newIndex = (currentCameraIndex - 1) % total;
+        if (newIndex < 0) currentCameraIndex += total;
+        SetCurrent(newIndex);
+    }
+
+    public void SetCurrent(int index)
+    {
+        currentCameraIndex = index;
+        currentCamera = cameraPoses.GetName(currentCameraIndex);
+    }
+
+    public void SetCurrent(string name)
+    {
+        currentCamera = name;
+        currentCameraIndex = cameraPoses.GetIndex(currentCamera);
+    }
+
+    //public void MoveCamera(int index)
+    //{
+    //    SetCurrent(index);
+    //}
+
+    public string GetCurrentName()
+    {
+        return currentCamera;
+    }
+
+    public int GetCurrentIndex()
+    {
+        return currentCameraIndex;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Transform targetPose = cameraPoses[currentCamera];
-        mainCamera.transform.SetPositionAndRotation(targetPose.position, targetPose.rotation);
+        Transform targetPose = cameraPoses.GetTransform(currentCamera);
+        mainDesktopCamera.transform.SetPositionAndRotation(targetPose.position, targetPose.rotation);
     }
 
-    void OnEnable() {
-        nextCamera.Enable();
-        prevCamera.Enable();
-    }
-    void OnDisable() {
-        nextCamera.Disable();
-        prevCamera.Disable();
-    }
 }

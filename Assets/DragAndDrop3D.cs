@@ -3,9 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class DragAndDrop3D : MonoBehaviour
-
 {
-
     [SerializeField]
     private InputAction mouseClick;
     [SerializeField]
@@ -19,7 +17,6 @@ public class DragAndDrop3D : MonoBehaviour
     private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
     private void Awake()
     {
-
         mainCamera = Camera.main;
     }
 
