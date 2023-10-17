@@ -1065,11 +1065,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1663830077
-      Data2: 1176458886
-      Data3: -1118567294
-      Data4: 1668158110
-    Path: event:/drone_hum
+      Data1: 1708923212
+      Data2: 1341856805
+      Data3: 573056160
+      Data4: 626161177
+    Path: event:/heavy_gate_open
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -1078,9 +1078,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
+  OverrideAttenuation: 1
   OverrideMinDistance: 1
-  OverrideMaxDistance: 40
+  OverrideMaxDistance: 400
 --- !u!114 &1207583241
 MonoBehaviour:
   m_ObjectHideFlags: 0

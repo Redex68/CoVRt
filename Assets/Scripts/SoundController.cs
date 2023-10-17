@@ -46,6 +46,7 @@ public class SoundController : MonoBehaviour
         emitter.SetParameter("Reverb", (float)reverb / 100);
 
         if (useOcclusion) Occlusion();
+        else emitter.SetParameter("Occlusion", 0);
     }
 
     [ContextMenu("Play")]
@@ -82,7 +83,7 @@ public class SoundController : MonoBehaviour
 
         int totalLineCasts = 5;
         emitter.SetParameter("Occlusion", (float)lineCastsObstructed / totalLineCasts);
-        emitter.EventInstance.setParameterByName("Occlusion", (float)lineCastsObstructed / totalLineCasts);
+        //emitter.EventInstance.setParameterByName("Occlusion", (float)lineCastsObstructed / totalLineCasts);
     }
 
     // Not mine; this is by ScottGamesSounds https://scottgamesounds.com/wp-content/uploads/2020/01/C.FirstPersonOcclusion.txt
