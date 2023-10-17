@@ -11,6 +11,7 @@ public class CameraSelector : MonoBehaviour
     /// <summary> The width of the cone in degrees </summary>
     [SerializeField] float coneWidth = 5;
     [SerializeField] GameObject arrow;
+    [SerializeField] Vector2 arrowScaling;
 
     private CameraControler controler;
     private UnityAction onClick;
@@ -23,7 +24,6 @@ public class CameraSelector : MonoBehaviour
         selectedCamera  = cameras[0];
         onClick += Select;
         controler = GetComponent<TestCameraControler>();
-        print(controler);
         controler.AddSelectListener(onClick);
     }
 
@@ -36,13 +36,14 @@ public class CameraSelector : MonoBehaviour
             arrow.SetActive(true);
             arrow.transform.position = selectedCamera.transform.position;
             arrow.transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, dir));
+            arrow.transform.localScale = new Vector3(dir.magnitude * (arrowScaling.x - 1.0f) + 1.0f, dir.magnitude * (arrowScaling.y - 1.0f) + 1.0f, 1.0f);
             GameObject closest = ClosestCameraInDir(dir);
             HighlightCamera(closest);
         }
         else
         {
             arrow.SetActive(false);
-            highlightedCamera = null;
+            HighlightCamera(null);
         }
     }
 
@@ -81,6 +82,7 @@ public class CameraSelector : MonoBehaviour
         if(camera == null)
         {
             highlightedCamera = null;
+            selectedCamera.GetComponent<Toggle>().isOn = true;
             return;
         }
         
