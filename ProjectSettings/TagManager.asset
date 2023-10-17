@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Anchor
   - Button
+  - MainDesktopCamera
   layers:
   - Default
   - TransparentFX
