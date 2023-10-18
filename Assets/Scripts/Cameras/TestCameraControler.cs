@@ -23,6 +23,8 @@ public class TestCameraControler : MonoBehaviour, CameraControler
     public Vector2 GetDirection()
     {
         Vector2 position = Input.mousePosition;
-        return new Vector2(Mathf.InverseLerp(0, Screen.width, position.x) * 2.0f - 1.0f, Mathf.InverseLerp(0, Screen.height, position.y) * 2.0f - 1.0f);
+        if(position.x < Screen.width / 2 || position.y < Screen.height / 2)
+            return Vector2.zero;
+        return new Vector2(Mathf.InverseLerp(Screen.width / 2, Screen.width, position.x) * 2.0f - 1.0f, Mathf.InverseLerp(Screen.height / 2, Screen.height, position.y) * 2.0f - 1.0f);
     }
 }
