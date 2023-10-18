@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,25 +7,43 @@ using UnityEngine.UI;
 
 public class CameraSelector : MonoBehaviour
 {
-    [SerializeField] List<GameObject> cameras;
     [SerializeField] float deadzone = 0.1f;
     /// <summary> The width of the cone in degrees </summary>
     [SerializeField] float coneWidth = 5;
     [SerializeField] GameObject arrow;
     [SerializeField] Vector2 arrowScaling;
+    [SerializeField] Color defaultColor = Color.white;
+    [SerializeField] Color highlightColor = Color.cyan;
+    [SerializeField] float highlightBreatheSpeed = 1.0f;
+    [SerializeField] float highlightBreatheSizeIncrease = 0.5f;
 
     private CameraControler controler;
     private UnityAction onClick;
     private GameObject highlightedCamera;
     private GameObject selectedCamera;
+    private int currentFloor = 0;
+    private List<List<GameObject>> floorCams = new List<List<GameObject>>();
+    private List<GameObject> lastSelectedCam = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        selectedCamera  = cameras[0];
         onClick += Select;
         controler = GetComponent<TestCameraControler>();
         controler.AddSelectListener(onClick);
+
+        OverviewMap overviewMap = GetComponent<OverviewMap>();
+        floorCams.Add(new List<GameObject>());
+        floorCams.Add(new List<GameObject>());
+
+        foreach(Transform t in overviewMap.floor1Cams.transform)
+            floorCams[0].Add(t.gameObject);
+        foreach(Transform t in overviewMap.floor2Cams.transform)
+            floorCams[1].Add(t.gameObject);
+        for(int i = 0; i < floorCams.Count; i++)
+            lastSelectedCam.Add(floorCams[i][0]);
+
+        selectedCamera = lastSelectedCam[0];
     }
 
     // Update is called once per frame
@@ -47,22 +66,34 @@ public class CameraSelector : MonoBehaviour
         }
     }
 
+    //Called when the user presses the button to select a highlighted camera
     void Select()
     {
         if(highlightedCamera != null)
         {
-            selectedCamera.GetComponent<Toggle>().isOn = false;
             selectedCamera = highlightedCamera;
-            highlightedCamera = null;
+            HighlightCamera(null); 
+            selectedCamera.GetComponent<Toggle>().isOn = true;
+
+            lastSelectedCam[currentFloor] = selectedCamera;
         }
     }
 
+    //Called when the user switches floors
+    public void FloorChanged(int floor)
+    {
+        currentFloor = floor;
+        HighlightCamera(lastSelectedCam[currentFloor]);
+        Select();
+    }
+
+/// <summary> Returns the closest camera in the specified direction relative to the currently selected camera </summary>
     private GameObject ClosestCameraInDir(Vector2 dir)
     {
         GameObject currentCamera = selectedCamera;
         float closestDist = float.MaxValue;
         GameObject closest = null;
-        foreach (GameObject camera in cameras)
+        foreach (GameObject camera in floorCams[currentFloor])
         {
             if(camera == currentCamera) continue;
 
@@ -79,19 +110,35 @@ public class CameraSelector : MonoBehaviour
 
     private void HighlightCamera(GameObject camera)
     {
+        if(camera == selectedCamera) return;
+        //Reset the color of the last highlighted camera when no camera is being highlighted
         if(camera == null)
         {
-            highlightedCamera = null;
-            selectedCamera.GetComponent<Toggle>().isOn = true;
+            if(highlightedCamera != null)
+            {
+                SetColorTo(highlightedCamera, defaultColor);
+                highlightedCamera.transform.localScale = Vector3.one;
+                highlightedCamera = null;
+            }
             return;
         }
         
-        if(highlightedCamera != null && selectedCamera != camera)
+        if(highlightedCamera != null)
         {
-            highlightedCamera.GetComponent<Toggle>().isOn = false;
+            SetColorTo(highlightedCamera, defaultColor);
+            highlightedCamera.transform.localScale = Vector3.one;
         }
 
-        camera.GetComponent<Toggle>().isOn = true;
         highlightedCamera = camera;
+        SetColorTo(highlightedCamera, highlightColor);
+        //Create the breathing effect
+        float scale = Mathf.Abs(Mathf.InverseLerp(0, highlightBreatheSpeed, Time.time % highlightBreatheSpeed) - 0.5f) * highlightBreatheSizeIncrease + 1.0f + highlightBreatheSizeIncrease / 2;
+        highlightedCamera.transform.localScale = new Vector3(scale, scale, 1.0f);
+    }
+
+    private void SetColorTo(GameObject camera, Color color)
+    {
+        Image image = camera.GetComponentInChildren<Image>();
+        if(image != null) image.color = color;
     }
 }

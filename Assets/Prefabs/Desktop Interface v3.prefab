@@ -4617,6 +4617,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8459486240771789547}
+        m_TargetAssemblyTypeName: CameraSelector, Assembly-CSharp
+        m_MethodName: FloorChanged
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &3465421306317689401
 GameObject:
@@ -6698,20 +6710,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea31edc81603ad4ebf9d4009066aaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameras:
-  - {fileID: 5088526846111988603}
-  - {fileID: 3008090095314993382}
-  - {fileID: 5564201731786871294}
-  - {fileID: 7675062692687469265}
-  - {fileID: 6062047702070611580}
-  - {fileID: 7203299164645762392}
-  - {fileID: 3933569179094193787}
-  - {fileID: 2220500753001054862}
-  - {fileID: 862386305544942460}
   deadzone: 0.1
   coneWidth: 20
   arrow: {fileID: 5413645394352710856}
   arrowScaling: {x: 1.5, y: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  highlightBreatheSpeed: 0.75
+  highlightBreatheSizeIncrease: 0.5
 --- !u!114 &2701371334495840439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9577,6 +9583,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 2800000, guid: 9510b843489c943418ff6351f9bf44da, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8459486240771789547}
+        m_TargetAssemblyTypeName: CameraSelector, Assembly-CSharp
+        m_MethodName: FloorChanged
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
