@@ -7,12 +7,13 @@ public class Dial : MonoBehaviour
 {
     Transform handle;
     Image fill;
+    Image meter;
 
     // how much can the dial actually turn?
     [SerializeField, Range(180, 360)] float degrees = 360;
 
     [SerializeField, Range(360, 0)] float angle = 180;
-    [SerializeField, Range(0,1)] float threshold = 0.5f; 
+    [SerializeField] float threshold = 0.5f; 
 
     // flag for whether we've "grabbed" the value after changing camera etc
     [SerializeField] bool grabbed = false;
@@ -23,7 +24,8 @@ public class Dial : MonoBehaviour
 
     void Start(){
         handle = transform.Find("Knob");
-        fill = transform.Find("Meter").Find("Fill").GetComponent<Image>();
+        meter = transform.Find("Meter").GetComponent<Image>();
+        fill = transform.Find("Meter/Fill").GetComponent<Image>();
         SetupOffset();
     }
     public void OnHandleDrag() {
@@ -93,7 +95,9 @@ public class Dial : MonoBehaviour
 
     void SetupOffset() {
         offset = (360 - degrees) / 2;
-        transform.localRotation = Quaternion.AngleAxis(-offset, Vector3.forward); 
+        transform.localRotation = Quaternion.AngleAxis(-offset, Vector3.forward);
+
+        meter.fillAmount = degrees / 360.0f - 0.001f;
     }
 
     void Update() {
