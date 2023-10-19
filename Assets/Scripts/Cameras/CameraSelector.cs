@@ -22,8 +22,8 @@ public class CameraSelector : MonoBehaviour
     private GameObject highlightedCamera;
     private GameObject selectedCamera;
     private int currentFloor = 0;
-    private List<List<GameObject>> floorCams = new List<List<GameObject>>();
-    private List<GameObject> lastSelectedCam = new List<GameObject>();
+    private List<List<GameObject>> floorCamIcons = new List<List<GameObject>>();
+    private List<GameObject> lastSelectedCamIcon = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -33,17 +33,17 @@ public class CameraSelector : MonoBehaviour
         controler.AddSelectListener(onClick);
 
         OverviewMap overviewMap = GetComponent<OverviewMap>();
-        floorCams.Add(new List<GameObject>());
-        floorCams.Add(new List<GameObject>());
+        floorCamIcons.Add(new List<GameObject>());
+        floorCamIcons.Add(new List<GameObject>());
 
         foreach(Transform t in overviewMap.floor1Cams.transform)
-            floorCams[0].Add(t.gameObject);
+            floorCamIcons[0].Add(t.gameObject);
         foreach(Transform t in overviewMap.floor2Cams.transform)
-            floorCams[1].Add(t.gameObject);
-        for(int i = 0; i < floorCams.Count; i++)
-            lastSelectedCam.Add(floorCams[i][0]);
+            floorCamIcons[1].Add(t.gameObject);
+        for(int i = 0; i < floorCamIcons.Count; i++)
+            lastSelectedCamIcon.Add(floorCamIcons[i][0]);
 
-        selectedCamera = lastSelectedCam[0];
+        selectedCamera = lastSelectedCamIcon[0];
     }
 
     // Update is called once per frame
@@ -75,7 +75,7 @@ public class CameraSelector : MonoBehaviour
             HighlightCamera(null); 
             selectedCamera.GetComponent<Toggle>().isOn = true;
 
-            lastSelectedCam[currentFloor] = selectedCamera;
+            lastSelectedCamIcon[currentFloor] = selectedCamera;
         }
     }
 
@@ -83,7 +83,7 @@ public class CameraSelector : MonoBehaviour
     public void FloorChanged(int floor)
     {
         currentFloor = floor;
-        HighlightCamera(lastSelectedCam[currentFloor]);
+        HighlightCamera(lastSelectedCamIcon[currentFloor]);
         Select();
     }
 
@@ -93,7 +93,7 @@ public class CameraSelector : MonoBehaviour
         GameObject currentCamera = selectedCamera;
         float closestDist = float.MaxValue;
         GameObject closest = null;
-        foreach (GameObject camera in floorCams[currentFloor])
+        foreach (GameObject camera in floorCamIcons[currentFloor])
         {
             if(camera == currentCamera) continue;
 
