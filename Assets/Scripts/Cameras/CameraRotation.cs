@@ -30,6 +30,7 @@ public class CameraRotation : MonoBehaviour
     {
         if(DesktopCameraManager.currentCameraIndex == poses.namesToIndices[name])
         {
+            //Set the dial's output angle to the correct one for the currently selected camera
             if(!isSelected)
             {
                 dial.grabbed = false;
