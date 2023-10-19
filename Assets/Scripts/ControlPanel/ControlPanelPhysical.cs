@@ -7,6 +7,11 @@ using UnityEditor.Experimental.GraphView;
 
 public class ControlPanelPhysical : ControlPanel
 {
+    [SerializeField] bool invertJoystickX;
+    [SerializeField] bool invertJoystickY;
+    [SerializeField] bool invertDial1;
+    [SerializeField] bool invertDial2;
+
     private UnityEvent cameraSelect = new();
     private UnityEvent<int> floorSwitch = new();
 
@@ -62,9 +67,11 @@ public class ControlPanelPhysical : ControlPanel
         int _dial2 = int.Parse(segments[5]);
         bool buttonDown = int.Parse(segments[6]) == 1;
 
-        joystick = new Vector2((_joystickX - 512) / 512.0f, (_joystickY - 512) / 512.0f);
+        joystick = new Vector2((invertJoystickX ? -1 : 1) * (_joystickX - 512) / 512.0f, (invertJoystickY ? -1 : 1) * (_joystickY - 512) / 512.0f);
         dialPositions[0] = _dial1 / 1023.0f;
+        if(invertDial1) dialPositions[0] = 1.0f - dialPositions[0];
         dialPositions[1] = _dial2 / 1023.0f;
+        if(invertDial2) dialPositions[1] = 1.0f - dialPositions[1];
 
         if(newFloor != floor)
         {
