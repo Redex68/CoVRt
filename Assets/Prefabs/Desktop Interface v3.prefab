@@ -13831,7 +13831,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1265162610202293426, guid: 749f5cf48df004a48920658da576821d, type: 3}
       propertyPath: m_Name
-      value: Dial
+      value: CamRotDial
       objectReference: {fileID: 0}
     - target: {fileID: 1824884822335467757, guid: 749f5cf48df004a48920658da576821d, type: 3}
       propertyPath: m_Pivot.x
@@ -13933,7 +13933,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1265162610202293426, guid: 749f5cf48df004a48920658da576821d, type: 3}
       propertyPath: m_Name
-      value: Dial (1)
+      value: CamTuneDial
       objectReference: {fileID: 0}
     - target: {fileID: 1824884822335467757, guid: 749f5cf48df004a48920658da576821d, type: 3}
       propertyPath: m_Pivot.x

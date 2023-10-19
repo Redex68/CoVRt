@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraRotation : MonoBehaviour
+{
+    [SerializeField] public float rotationGoal;
+    [SerializeField, Range(0, 360)] private float maxRotationAngle;
+    [SerializeField] private FloatVariable cameraRotationSeped;
+    [SerializeField] private Dial dial;
+
+    private float currentRotation = 0.0f;
+    private bool isSelected = false;
+    private CameraPoses poses;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        poses = FindObjectOfType<CameraPoses>(true);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        checkIsSelected();
+        if(isSelected) UpdateGoal();
+        UpdateRotation();
+    }
+    private void checkIsSelected()
+    {
+        if(DesktopCameraManager.currentCameraIndex == poses.namesToIndices[name])
+        {
+            if(!isSelected)
+            {
+                dial.grabbed = false;
+                dial.outputAngle = -(rotationGoal / maxRotationAngle * dial.degrees) + 180;
+            }
+            isSelected = true;
+        }
+        else isSelected = false;
+    }
+    
+    private void UpdateGoal()
+    {
+        if(dial.grabbed)
+        {
+            rotationGoal = -(dial.outputAngle - 180) / dial.degrees * maxRotationAngle;
+        }
+    }
+
+    //This will get out of sync with time, but it would be a pain to make it work correctly
+    private void UpdateRotation()
+    {
+        if(currentRotation != rotationGoal)
+        {
+            float toRotate = Mathf.Min(Mathf.Abs(currentRotation - rotationGoal), cameraRotationSeped.Value * Time.deltaTime);
+            if(currentRotation > rotationGoal) toRotate = -toRotate;
+            currentRotation += toRotate;
+            transform.Rotate(Vector3.up, toRotate, Space.World);
+        }
+    }
+}
