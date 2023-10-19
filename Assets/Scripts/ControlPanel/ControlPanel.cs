@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 //Interface that represents the control panel joystick
 public abstract class ControlPanel : MonoBehaviour
 {
-    public ControlPanel Instance;
+    public static ControlPanel Instance;
 
 
     /// <summary> The direction in which the joystick is pointing in </summary>
@@ -22,10 +23,7 @@ public abstract class ControlPanel : MonoBehaviour
     /// </summary>
     public abstract void AddFloorSwitchListener(UnityAction<int> action);
 
-    /// <summary> The position of dial 1 <summary>
-    /// <returns> A float with a value [0.0, 1.0] </returns>
-    public abstract float GetDial1Position();
-    /// <summary> The position of dial 2 <summary>
-    /// <returns> A float with a value [0.0, 1.0] </returns>
-    public abstract float GetDial2Position();
+    /// <summary> The position of the dials <summary>
+    /// <returns> A list of floats with a value [0.0, 1.0] </returns>
+    public abstract List<float> GetDialPositions();
 }

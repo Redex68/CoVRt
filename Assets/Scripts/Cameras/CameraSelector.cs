@@ -29,7 +29,7 @@ public class CameraSelector : MonoBehaviour
     void Start()
     {
         onClick += Select;
-        controler = GetComponent<TestCameraControler>();
+        controler = GetComponent<PhysicalCameraControler>();
         controler.AddSelectListener(onClick);
 
         OverviewMap overviewMap = GetComponent<OverviewMap>();
@@ -44,6 +44,7 @@ public class CameraSelector : MonoBehaviour
             lastSelectedCamIcon.Add(floorCamIcons[i][0]);
 
         selectedCamera = lastSelectedCamIcon[0];
+        enabled = false;
     }
 
     // Update is called once per frame

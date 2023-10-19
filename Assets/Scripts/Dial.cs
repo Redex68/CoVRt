@@ -9,10 +9,13 @@ public class Dial : MonoBehaviour
     Image fill;
     Image meter;
 
+    public bool UIInteractionEnabled = true;
+    
+    [SerializeField] int dialIndex;
     // how much can the dial actually turn?
     [SerializeField, Range(180, 360)] public float degrees = 360;
 
-    [SerializeField, Range(360, 0)] float angle = 180;
+    [SerializeField, Range(360, 0)] public float angle = 180;
     [SerializeField] float threshold = 0.5f; 
 
     // flag for whether we've "grabbed" the value after changing camera etc
@@ -29,13 +32,15 @@ public class Dial : MonoBehaviour
         SetupOffset();
     }
     public void OnHandleDrag() {
-        Vector3 mousePos = Input.mousePosition;
-        Vector2 direction  = mousePos - handle.position;
-        float newAngle = Vector2.SignedAngle(Vector2.down, direction);
-        newAngle = newAngle <= 0 ? 360 + newAngle : newAngle;
-        if (newAngle >= 360 - offset || newAngle <= offset) return;
-        angle = newAngle;
-        TryGrab();
+        if(UIInteractionEnabled)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            Vector2 direction  = mousePos - handle.position;
+            float newAngle = Vector2.SignedAngle(Vector2.down, direction);
+            newAngle = newAngle <= 0 ? 360 + newAngle : newAngle;
+            if (newAngle >= 360 - offset || newAngle <= offset) return;
+            angle = newAngle;
+        }
     }
     void TryGrab() {
         // is there a better way to do this?
@@ -102,11 +107,16 @@ public class Dial : MonoBehaviour
 
     void Update() {
         SetupOffset();
+        if(!UIInteractionEnabled)
+        {
+            angle = ControlPanel.Instance.GetDialPositions()[dialIndex] * degrees + (360.0f - degrees) / 2.0f;
+        }
         if (grabbed) {
             outputAngle = angle;
         }
         SetRotation();
         SetFill();
+        TryGrab();
     }
 
 }

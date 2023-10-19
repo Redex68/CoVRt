@@ -7,21 +7,15 @@ using UnityEditor.Experimental.GraphView;
 
 public class ControlPanelPhysical : ControlPanel
 {
-
     private UnityEvent cameraSelect = new();
     private UnityEvent<int> floorSwitch = new();
 
-    private SerialPort data_stream;
-    private bool reading = false;
-
     private int floor = 0;
     private Vector2 joystick = Vector2.zero;
-    private bool joystickWasHeldDown = false;
-    private float dial1 = 0;
-    private float dial2 = 0;
+    private bool buttonWasHeldDown = false;
+    private List<float> dialPositions = new List<float>();
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance != null && Instance != this) 
         { 
@@ -31,61 +25,61 @@ public class ControlPanelPhysical : ControlPanel
         { 
             Instance = this; 
         }
-
-        StartCoroutine(readDataReceived());
     }
 
-    // Update is called once per frame
+    // Start is called before the first frame update
+    void Start()
+    {
+        dialPositions.Add(0);
+        dialPositions.Add(0);
+        enabled = false;
+    }
+
     void Update()
     {
-        
+        ReadData();
     }
 
     //Data format:
-    //f|xxxx|yyyy|b|dddd|eeee
+    //f|xxxx|yyyy|jb|dddd|eeee|b
     //f - floor (0 or 1)
     //xxxx - joystick x axis [0, 1023]
     //yyyy - joystick y axis [0, 1023]
-    //b - joystick button (0 or 1)
+    //jb - joystick button (0 or 1)
     //dddd - dial 1 [0, 1023]
     //eeee - dial 2 [0, 1023]
-    private IEnumerator readDataReceived()
+    //b - button button (0 or 1)
+    private void ReadData()
     {
-        while(true)
+        string[] segments = ControlPanelServer.data.Split('|');
+        if(segments.Length != 7) return;
+
+        int newFloor = int.Parse(segments[0]);
+        int _joystickX = int.Parse(segments[1]);
+        int _joystickY = int.Parse(segments[2]);
+        bool joystickDown = int.Parse(segments[3]) == 1;
+        int _dial1 = int.Parse(segments[4]);
+        int _dial2 = int.Parse(segments[5]);
+        bool buttonDown = int.Parse(segments[6]) == 1;
+
+        joystick = new Vector2((_joystickX - 512) / 512.0f, (_joystickY - 512) / 512.0f);
+        dialPositions[0] = _dial1 / 1023.0f;
+        dialPositions[1] = _dial2 / 1023.0f;
+
+        if(newFloor != floor)
         {
-            if(reading)
-            {
-                string newData = data_stream.ReadLine();
-                string[] segments = newData.Split('|');
-                if(segments.Length != 6) continue;
-
-                int newFloor = int.Parse(segments[0]);
-                int _joystickX = int.Parse(segments[1]);
-                int _joystickY = int.Parse(segments[2]);
-                bool joystickDown = int.Parse(segments[3]) == 1;
-                int _dial1 = int.Parse(segments[4]);
-                int _dial2 = int.Parse(segments[5]);
-
-                joystick = new Vector2((_joystickX - 512) / 512.0f, (_joystickY - 512) / 512.0f);
-                dial1 = (_dial1 - 512) / 512.0f;
-                dial2 = (_dial2 - 512) / 512.0f;
-
-                if(newFloor != floor)
-                {
-                    floorSwitch.Invoke(newFloor);
-                    floor = newFloor;
-                }
-                if(joystickDown && !joystickWasHeldDown)
-                {
-                    cameraSelect.Invoke();
-                    joystickWasHeldDown = true;
-                }
-                else if(!joystickDown)
-                {
-                    joystickWasHeldDown = false;
-                }
-            }
-            else yield return new WaitForSeconds(1);
+            Debug.Log("Invoking floor switch");
+            floorSwitch.Invoke(newFloor);
+            floor = newFloor;
+        }
+        if(buttonDown && !buttonWasHeldDown)
+        {
+            cameraSelect.Invoke();
+            buttonWasHeldDown = true;
+        }
+        else if(!buttonDown)
+        {
+            buttonWasHeldDown = false;
         }
     }
 
@@ -100,14 +94,9 @@ public class ControlPanelPhysical : ControlPanel
         floorSwitch.AddListener(action);
     }
 
-    public override float GetDial1Position()
+    public override List<float> GetDialPositions()
     {
-        return dial1;
-    }
-
-    public override float GetDial2Position()
-    {
-        return dial2;
+        return dialPositions;
     }
 
     public override Vector2 GetJoystickDirection()
