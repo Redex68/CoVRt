@@ -27,7 +27,7 @@ public class DesktopCameraManager : MonoBehaviour
     [SerializeField]
     private string currentCamera = null;
     [SerializeField]
-    private int currentCameraIndex = 0;
+    public static int currentCameraIndex = 0;
 
     void Start()
     {
