@@ -13,10 +13,12 @@ public class SoundController : MonoBehaviour
     public int volume = 100; 
     [Range(0, 500)]
     [Tooltip("Pitch multiplier (%)")]
-    public int pitch = 1;
+    public int pitch = 100;
     [Range(0, 100)]
     [Tooltip("Reverb multiplier (%)")]
     public int reverb = 0;
+    [Tooltip("Decides whether or not the sound played can have its reverb changed by reverb zones")]
+    public bool permitReverbZones = true;
 
     [Space]
     public bool useOcclusion = false;
@@ -28,11 +30,16 @@ public class SoundController : MonoBehaviour
     private StudioListener listener;
     private int lineCastsObstructed;
 
+    private bool reverbDecaying = false;
+    private float decayingReverb;
+    private int defaultReverb;
+
     // Start is called before the first frame update
     void Start()
     {
         // find the audio listener in the scene
         listener = FindObjectOfType<StudioListener>();
+        defaultReverb = reverb;
     }
 
     // Update is called once per frame
@@ -45,8 +52,21 @@ public class SoundController : MonoBehaviour
         // set reverb level (0 - no reverb, 100 - full reverb
         emitter.SetParameter("Reverb", (float)reverb / 100);
 
+        // perform occlusion if activated, else make sure it isn't used
         if (useOcclusion) Occlusion();
         else emitter.SetParameter("Occlusion", 0);
+
+        // If reverb is supposed to be decaying, slowly decrease its value until it reaches the set default value
+        if (reverbDecaying)
+        {
+            decayingReverb -= Time.deltaTime;
+            reverb = (int)decayingReverb;
+            if (reverb <= defaultReverb)
+            {
+                reverb = defaultReverb;
+                reverbDecaying = false;
+            }
+        }
     }
 
     [ContextMenu("Play")]
@@ -121,5 +141,18 @@ public class SoundController : MonoBehaviour
         else color = Color.green;
 
         Debug.DrawLine(listener, sound, color);
+    }
+
+    // Set the default reverb (the value which the decay will stop at)
+    public void SetDefaultReverb(int def)
+    {
+        defaultReverb = def;
+    }
+
+    // Being gradually decreasing the reverb of the sound (useful when sound or listener exits a reverb zone)
+    public void StartReverbDecay()
+    {
+        decayingReverb = reverb;
+        reverbDecaying = true;
     }
 }
