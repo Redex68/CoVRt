@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{88fd17fb-23a0-434c-9714-6d96dcea0984}">
+		<property name="assetPath">
+			<value>heavy_gate_open.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>43.079999999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f710127e-9b53-4d63-94b0-bfea96f47778}</destination>
+		</relationship>
+	</object>
+</objects>
