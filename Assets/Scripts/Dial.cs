@@ -42,6 +42,15 @@ public class Dial : MonoBehaviour
             angle = newAngle;
         }
     }
+
+    public void OnScroll()
+    {
+        Debug.Log(Input.mouseScrollDelta);
+        float newAngle = angle + Input.mouseScrollDelta.y * 5;
+        if (newAngle >= 360 - offset || newAngle <= offset) return;
+        angle = newAngle;
+    }
+
     void TryGrab() {
         // is there a better way to do this?
         if (Mathf.Abs(angle - outputAngle) < threshold) { // will be problematic if we go from 360 to 0

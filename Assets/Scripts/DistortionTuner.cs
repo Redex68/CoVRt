@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DistortionTuner : MonoBehaviour
 {
+    [SerializeField] private Dial dial;
+
     [SerializeField]
     private CustomRenderTexture toScreen;
 
@@ -22,7 +25,13 @@ public class DistortionTuner : MonoBehaviour
     private float value = 0;
     private float target;
     private float difference = 0;
-    
+
+    //Called when user selects a new camera
+    public void CameraSwitched()
+    {
+        RandomizeTargetFrequency();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,10 +50,10 @@ public class DistortionTuner : MonoBehaviour
         framerateLimiter.updatePeriod = Mathf.Lerp(0, periodBound, difference * framerateSensitivity) + 0.1f;
     }
 
-
     // Update is called once per frame
     void Update()
     {
+        value = dial.GetOutput();
         // could be optimized to only be called when there's a change
         difference = Mathf.Abs(target - value);
         AdjustDistortion();

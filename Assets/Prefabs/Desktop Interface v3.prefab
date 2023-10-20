@@ -883,7 +883,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &878972811881681665
 GameObject:
@@ -1248,7 +1260,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &956817660751623702
 GameObject:
@@ -3215,7 +3239,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2220500753001054862
 GameObject:
@@ -3300,7 +3336,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2245813721133462448
 GameObject:
@@ -4067,7 +4115,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &3044809892212431920
 GameObject:
@@ -5388,7 +5448,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &3975409179627660289
 GameObject:
@@ -5734,7 +5806,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &4154130096670953223
 GameObject:
@@ -7540,7 +7624,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &5215934922148524790
 GameObject:
@@ -8334,7 +8430,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &5706759798430829960
 GameObject:
@@ -8700,7 +8808,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &6104783681903154548
 GameObject:
@@ -10146,6 +10266,7 @@ GameObject:
   - component: {fileID: 753276906696579785}
   - component: {fileID: 3665016649210622110}
   - component: {fileID: 3660280078361727894}
+  - component: {fileID: 1226162356178612053}
   m_Layer: 0
   m_Name: Desktop Interface v3
   m_TagString: Untagged
@@ -10394,6 +10515,25 @@ MonoBehaviour:
   port: 42069
   serverFound: {fileID: 11400000, guid: 97411d5aaeff7a640a7e1ea0c9faa5aa, type: 2}
   serverDisconnected: {fileID: 11400000, guid: 9d1c2ac41190a70449ee268f2ac8ca74, type: 2}
+--- !u!114 &1226162356178612053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6927100941819538724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f4057a9d1049241ae2b226b2610804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dial: {fileID: 6264782751401064924}
+  toScreen: {fileID: 8600000, guid: c369024a2fe9ebf4ba591dc1900bc5b6, type: 2}
+  framerateLimiter: {fileID: 8600000, guid: 4c0ef92033a0eff4fba79b8dfb41968c, type: 2}
+  intensityScale: 100
+  periodBound: 0.5
+  framerateSensitivity: 10
+  value: 0
 --- !u!1 &7041986363756629268
 GameObject:
   m_ObjectHideFlags: 0
@@ -11069,7 +11209,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &7422027831636949017
 GameObject:
@@ -11542,7 +11694,19 @@ MonoBehaviour:
   m_Group: {fileID: 1908241727030740044}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1226162356178612053}
+        m_TargetAssemblyTypeName: DistortionTuner, Assembly-CSharp
+        m_MethodName: CameraSwitched
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &7716116388374447658
 GameObject:
@@ -14076,6 +14240,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].eventID
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 295944507512245266}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnScroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Dial, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14192,6 +14392,42 @@ PrefabInstance:
     - target: {fileID: 2320042060663013990, guid: 749f5cf48df004a48920658da576821d, type: 3}
       propertyPath: dialIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].eventID
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6264782751401064924}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnScroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Dial, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582077876121114481, guid: 749f5cf48df004a48920658da576821d, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
