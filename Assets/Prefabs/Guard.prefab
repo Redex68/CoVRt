@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 6902876892693350392}
   - component: {fileID: 2764935612840746939}
   - component: {fileID: 8291227725654658847}
+  - component: {fileID: 7835655021075958030}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -237,7 +238,29 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 40
+--- !u!114 &7835655021075958030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509429552545842525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c38167f35394c49a52ec50340f385b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitter: {fileID: 8291227725654658847}
+  volume: 100
+  pitch: 100
+  reverb: 0
+  permitReverbZones: 1
+  useOcclusion: 1
+  occlusionSpread: 1
+  occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!1 &1820826709371542067
 GameObject:
   m_ObjectHideFlags: 0
