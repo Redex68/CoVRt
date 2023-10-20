@@ -4,16 +4,16 @@ public class ControlPanelServerMock: MonoBehaviour
 {
     public GameEvent serverFound;
     public GameEvent serverDisconnected;    
-    [SerializeField] int newFloor = 0;
-    [SerializeField] int joystickX = 512;
-    [SerializeField] int joystickY = 512;
-    [SerializeField] int joystickDown = 0;
-    [SerializeField] int dial1 = 512;
-    [SerializeField] int dial2 = 512;
-    [SerializeField] int buttonDown = 0;
+    [SerializeField] bool floor = false;
+    [SerializeField] [Range(0, 1023)] int joystickX = 512;
+    [SerializeField] [Range(0, 1023)] int joystickY = 512;
+    [SerializeField] bool joystickDown = false;
+    [SerializeField] [Range(0, 1023)] int dial1 = 512;
+    [SerializeField] [Range(0, 1023)] int dial2 = 512;
+    [SerializeField] bool buttonDown = false;
 
     void Update()
     {
-        ControlPanelServer.data = $"{newFloor}|{joystickX}|{joystickY}|{joystickDown}|{dial1}|{dial2}|{buttonDown}";
+        ControlPanelServer.data = $"{(floor ? 1 : 0)}|{joystickX}|{joystickY}|{(joystickDown ? 1 : 0)}|{dial1}|{dial2}|{(buttonDown ? 1 : 0)}";
     }
 }

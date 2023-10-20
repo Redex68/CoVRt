@@ -45,7 +45,6 @@ public class Dial : MonoBehaviour
 
     public void OnScroll()
     {
-        Debug.Log(Input.mouseScrollDelta);
         float newAngle = angle + Input.mouseScrollDelta.y * 5;
         if (newAngle >= 360 - offset || newAngle <= offset) return;
         angle = newAngle;

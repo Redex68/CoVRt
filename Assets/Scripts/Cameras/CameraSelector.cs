@@ -18,7 +18,6 @@ public class CameraSelector : MonoBehaviour
     [SerializeField] float highlightBreatheSizeIncrease = 0.5f;
 
     private CameraControler controler;
-    private UnityAction onClick;
     private GameObject highlightedCamera;
     private GameObject selectedCamera;
     private int currentFloor = 0;
@@ -28,9 +27,8 @@ public class CameraSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        onClick += Select;
         controler = GetComponent<PhysicalCameraControler>();
-        controler.AddSelectListener(onClick);
+        controler.AddSelectListener(SelectHighlighted);
 
         OverviewMap overviewMap = GetComponent<OverviewMap>();
         floorCamIcons.Add(new List<GameObject>());
@@ -68,24 +66,27 @@ public class CameraSelector : MonoBehaviour
     }
 
     //Called when the user presses the button to select a highlighted camera
-    void Select()
+    void SelectHighlighted()
     {
         if(highlightedCamera != null)
         {
-            selectedCamera = highlightedCamera;
-            HighlightCamera(null); 
-            selectedCamera.GetComponent<Toggle>().isOn = true;
-
-            lastSelectedCamIcon[currentFloor] = selectedCamera;
+            Select(highlightedCamera);
         }
+    }
+
+    void Select(GameObject camera)
+    {
+        camera.GetComponent<Toggle>().isOn = true;
+        lastSelectedCamIcon[currentFloor] = camera;
+        selectedCamera = camera;
+        HighlightCamera(null);
     }
 
     //Called when the user switches floors
     public void FloorChanged(int floor)
     {
         currentFloor = floor;
-        HighlightCamera(lastSelectedCamIcon[currentFloor]);
-        Select();
+        Select(lastSelectedCamIcon[currentFloor]);
     }
 
 /// <summary> Returns the closest camera in the specified direction relative to the currently selected camera </summary>
@@ -123,15 +124,18 @@ public class CameraSelector : MonoBehaviour
             }
             return;
         }
-        
-        if(highlightedCamera != null)
-        {
-            SetColorTo(highlightedCamera, defaultColor);
-            highlightedCamera.transform.localScale = Vector3.one;
-        }
 
-        highlightedCamera = camera;
-        SetColorTo(highlightedCamera, highlightColor);
+        if(highlightedCamera != camera)
+        {
+            //Remove highlight from previously highlighted camera
+            if(highlightedCamera != null)
+            {
+                SetColorTo(highlightedCamera, defaultColor);
+                highlightedCamera.transform.localScale = Vector3.one;
+            }
+            highlightedCamera = camera;
+            SetColorTo(highlightedCamera, highlightColor);
+        }
         //Create the breathing effect
         float scale = Mathf.Abs(Mathf.InverseLerp(0, highlightBreatheSpeed, Time.time % highlightBreatheSpeed) - 0.5f) * highlightBreatheSizeIncrease + 1.0f + highlightBreatheSizeIncrease / 2;
         highlightedCamera.transform.localScale = new Vector3(scale, scale, 1.0f);
