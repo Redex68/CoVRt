@@ -33,8 +33,7 @@ public class CameraRotation : MonoBehaviour
             //Set the dial's output angle to the correct one for the currently selected camera
             if(!isSelected)
             {
-                dial.grabbed = false;
-                dial.outputAngle = -(rotationGoal / maxRotationAngle * dial.degrees) + 180;
+                dial.SetOutput(Mathf.InverseLerp(-maxRotationAngle / 2, maxRotationAngle / 2, rotationGoal));
             }
             isSelected = true;
         }
@@ -45,7 +44,7 @@ public class CameraRotation : MonoBehaviour
     {
         if(dial.grabbed)
         {
-            rotationGoal = -(dial.outputAngle - 180) / dial.degrees * maxRotationAngle;
+            rotationGoal = Mathf.Lerp(-maxRotationAngle, maxRotationAngle, dial.GetOutput()) / 2;
         }
     }
 

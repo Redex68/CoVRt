@@ -13,14 +13,14 @@ public class Dial : MonoBehaviour
     
     [SerializeField] int dialIndex;
     // how much can the dial actually turn?
-    [SerializeField, Range(180, 360)] public float degrees = 360;
+    [SerializeField, Range(180, 360)] float degrees = 360;
 
-    [SerializeField, Range(360, 0)] public float angle = 180;
+    [SerializeField, Range(360, 0)] float angle = 180;
     [SerializeField] float threshold = 0.5f; 
 
     // flag for whether we've "grabbed" the value after changing camera etc
-    [SerializeField] public bool grabbed = false;
-    [SerializeField, Range(360, 0)] public float outputAngle = 180;
+    [SerializeField] public bool grabbed {get; private set;} = false;
+    [SerializeField, Range(360, 0)] float outputAngle = 180;
 
 
     float offset = 0;
