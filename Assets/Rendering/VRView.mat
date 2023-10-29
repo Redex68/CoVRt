@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: VRView
-  m_Shader: {fileID: 4800000, guid: 99c2f06dfa3308d478434c6def7fae01, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8c218efc833306040a13d4080eeb7500, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
