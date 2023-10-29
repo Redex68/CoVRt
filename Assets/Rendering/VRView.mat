@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CCTV_Distortion
-  m_Shader: {fileID: 4800000, guid: e22fc35a520f6e64c8f702743729ce38, type: 3}
+  m_Name: VRView
+  m_Shader: {fileID: 4800000, guid: 99c2f06dfa3308d478434c6def7fae01, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 8600000, guid: 4c0ef92033a0eff4fba79b8dfb41968c, type: 2}
+        m_Texture: {fileID: 8400000, guid: 9978c154ae7ad35448c32498c0d83940, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -79,8 +79,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints:
-    - _Interlace: 3
+    m_Ints: []
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
@@ -99,8 +98,6 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 0.51398426
-    - _Interlace: 3.19
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -120,7 +117,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &6226008516891716288
+--- !u!114 &8327231869681271342
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

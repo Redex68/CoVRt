@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,11 @@ public class CameraRotation : MonoBehaviour
     void Start()
     {
         poses = FindObjectOfType<CameraPoses>(true);
+        // why was this not automatic 
+        if (dial == null) {
+            Dial[] dials = FindObjectsOfType<Dial>();
+            dial = Array.Find(dials, elem => elem.name.Equals("CamRotDial"));
+        }
     }
 
     // Update is called once per frame
