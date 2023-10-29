@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a13a613a-8c81-41e5-8c13-87ebeb79b70a}">
+		<property name="assetPath">
+			<value>dark_wind.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>67.415999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f710127e-9b53-4d63-94b0-bfea96f47778}</destination>
+		</relationship>
+	</object>
+</objects>
