@@ -36,6 +36,9 @@ public class DistortionTuner : MonoBehaviour
     void Start()
     {
         RandomizeTargetFrequency();
+        var value = GetComponent<RectTransform>().rect.size;
+        Debug.Log(value);
+        toScreen.material.SetVector("_Dimensions",value);
     }
 
     // TODO: subscribe this to whatever event is called when switching camera
@@ -47,7 +50,7 @@ public class DistortionTuner : MonoBehaviour
         toScreen.material.SetFloat("_Intensity", difference * intensityScale);      
     }
     void AdjustFramerate() {
-        framerateLimiter.updatePeriod = Mathf.Lerp(0, periodBound, difference * framerateSensitivity) + 0.1f;
+        framerateLimiter.updatePeriod = Mathf.Lerp(0, periodBound, difference * framerateSensitivity);
     }
 
     // Update is called once per frame
