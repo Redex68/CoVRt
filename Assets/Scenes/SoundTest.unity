@@ -603,7 +603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2069178591288487094, guid: dd7e66a6c645dd74b901f596c04da51b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.184
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 2069178591288487094, guid: dd7e66a6c645dd74b901f596c04da51b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -611,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2069178591288487094, guid: dd7e66a6c645dd74b901f596c04da51b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.926
+      value: -7.85
       objectReference: {fileID: 0}
     - target: {fileID: 2069178591288487094, guid: dd7e66a6c645dd74b901f596c04da51b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -653,10 +653,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 971603208}
+    - target: {fileID: 7293295558669315965, guid: dd7e66a6c645dd74b901f596c04da51b, type: 3}
+      propertyPath: volume
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7431127134829645672, guid: dd7e66a6c645dd74b901f596c04da51b, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 971603208}
+    - target: {fileID: 9039715878160800995, guid: dd7e66a6c645dd74b901f596c04da51b, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039715878160800995, guid: dd7e66a6c645dd74b901f596c04da51b, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
