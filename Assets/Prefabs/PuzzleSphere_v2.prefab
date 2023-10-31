@@ -111,6 +111,8 @@ GameObject:
   - component: {fileID: 5316465081230453825}
   - component: {fileID: 3066176247644131032}
   - component: {fileID: 4442297492541187481}
+  - component: {fileID: 1871196694500022171}
+  - component: {fileID: 6592359484132414849}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Button
@@ -222,6 +224,7 @@ MonoBehaviour:
   endRot: {fileID: 6385546529868789317}
   resetTime: 0.1
   sphere: {fileID: 3120988777332281392}
+  sfx: {fileID: 0}
 --- !u!54 &4442297492541187481
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -249,6 +252,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1871196694500022171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387045927096757962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 555201760
+      Data2: 1340506386
+      Data3: 1897030827
+      Data4: 1240262483
+    Path: event:/lever
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &6592359484132414849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387045927096757962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c38167f35394c49a52ec50340f385b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitter: {fileID: 1871196694500022171}
+  volume: 100
+  pitch: 100
+  reverb: 0
+  permitReverbZones: 0
+  useOcclusion: 1
+  occlusionSpread: 1
+  occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!1 &448598220606963760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1407,8 @@ GameObject:
   - component: {fileID: 6593913832457308176}
   - component: {fileID: 3834291562209736936}
   - component: {fileID: 3120988777332281392}
+  - component: {fileID: 9039715878160800995}
+  - component: {fileID: 7293295558669315965}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Button
@@ -1488,6 +1546,74 @@ MonoBehaviour:
   winAngle: {fileID: 4871744036612362234}
   lever: {fileID: 3066176247644131032}
   puzzleDone: {fileID: 11400000, guid: 02ddca7fe28dcf94e9849ad4a9cb160c, type: 2}
+  sfx: {fileID: 7293295558669315965}
+  correctSound:
+    Guid:
+      Data1: 1848856404
+      Data2: 1339854531
+      Data3: 71793087
+      Data4: 1761246831
+    Path: event:/correct
+  incorrectSound:
+    Guid:
+      Data1: 1994511003
+      Data2: 1234294113
+      Data3: 596522669
+      Data4: 779056868
+    Path: event:/incorrect
+--- !u!114 &9039715878160800995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436176739925849077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1994511003
+      Data2: 1234294113
+      Data3: 596522669
+      Data4: 779056868
+    Path: event:/incorrect
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &7293295558669315965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436176739925849077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c38167f35394c49a52ec50340f385b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitter: {fileID: 9039715878160800995}
+  volume: 100
+  pitch: 100
+  reverb: 0
+  permitReverbZones: 0
+  useOcclusion: 1
+  occlusionSpread: 1
+  occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!1 &5726482603674928176
 GameObject:
   m_ObjectHideFlags: 0

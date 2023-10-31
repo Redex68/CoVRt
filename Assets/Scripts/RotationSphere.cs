@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
+using FMODUnity;
 
 public class RotationSphere : Interactible
 {
@@ -17,6 +18,11 @@ public class RotationSphere : Interactible
     bool beaten = false;
     [SerializeField] Lever lever;
     [SerializeField] GameEvent puzzleDone;
+
+    [Space]
+    [SerializeField] SoundController sfx;
+    [SerializeField] EventReference correctSound;
+    [SerializeField] EventReference incorrectSound;
 
     // Start is called before the first frame update
     void Start()
@@ -80,10 +86,20 @@ public class RotationSphere : Interactible
             offset.rotation = Quaternion.Lerp(offset.rotation, winAngle.rotation, e.value);
             if (e.value == 1)
             {
+                // play sound to indicate correct solution
+                sfx.emitter.EventReference = correctSound;
+                sfx.emitter.Play();
+
                 beaten = true;
                 rendR.material.color = new Color(0, 1, 0, 0.5f);
                 puzzleDone.SimpleRaise();
             }
+        }
+        else
+        {
+            // play sound to indicate incorrect solution
+            sfx.emitter.EventReference = incorrectSound;
+            sfx.emitter.Play();
         }
     }
 }

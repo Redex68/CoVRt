@@ -26,6 +26,7 @@ public class Lever : Interactible
     [SerializeField] Transform handleBase, lever, startRot, endRot;
     [SerializeField] float resetTime;
     [SerializeField] RotationSphere sphere;
+    [SerializeField] SoundController sfx;
     bool finished = false;
     Quaternion animationStartPos, lastRot;
     float resetTimer;
@@ -86,6 +87,8 @@ public class Lever : Interactible
         }
         if (lastRot != handleBase.rotation)
         {
+            // play sound for pulling the lever (which I'm guessing is here?)
+            sfx.emitter.Play();
             leverUpdate?.Invoke(this, new LeverEventArgs((handleBase.localRotation.x - startRot.localRotation.x) / (endRot.localRotation.x - startRot.localRotation.x)));
         }
     }
