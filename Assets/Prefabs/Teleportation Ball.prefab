@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4153990853329250900}
   - component: {fileID: 6679440158137818147}
   - component: {fileID: 2418515628418032501}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Teleportation Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}

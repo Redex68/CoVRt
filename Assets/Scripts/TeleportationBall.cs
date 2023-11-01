@@ -22,8 +22,8 @@ public class TeleportationBall : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        despawnTimer += Time.deltaTime;
-        if (despawnTimer >= despawnTime) Destroy(this);
+        //despawnTimer += Time.deltaTime;
+        //if (despawnTimer >= despawnTime) Destroy(this);
         if (target != null)
         {
             lastPos = transform.position;

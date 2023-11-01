@@ -48,7 +48,7 @@ CustomRenderTexture:
   m_UpdateZoneSpace: 0
   m_CurrentUpdateZoneSpace: 0
   m_UpdateZones: []
-  m_UpdatePeriod: 0.6
+  m_UpdatePeriod: 0.13282815
   m_ShaderPass: 0
   m_CubemapFaceMask: 4294967295
   m_DoubleBuffered: 0
