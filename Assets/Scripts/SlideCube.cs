@@ -15,7 +15,6 @@ public class SlideCube : MonoBehaviour
 
     private void OnUpdate(object sender, LeverEventArgs e)
     {
-        Debug.Log(e.value);
         transform.position = Vector3.Lerp(startPos.position, endPos.position, e.value);
     }
 }

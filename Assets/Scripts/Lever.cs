@@ -89,6 +89,7 @@ public class Lever : Interactible
         {
             // play sound for pulling the lever (which I'm guessing is here?)
             float leverValue = (handleBase.localRotation.x - startRot.localRotation.x) / (endRot.localRotation.x - startRot.localRotation.x);
+            Debug.Log("Lever value: " + leverValue);
             if(leverValue == 1.0f) sfx.emitter.Play();
             leverUpdate?.Invoke(this, new LeverEventArgs(leverValue));
         }
