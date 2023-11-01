@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4153990853329250900}
   - component: {fileID: 6679440158137818147}
   - component: {fileID: 2418515628418032501}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Teleportation Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f6a67cb9a2a0ca4dba3244598ca5e95, type: 2}
+  - {fileID: 2100000, guid: 64393c9c1b6d59f40900b86056c7e68e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

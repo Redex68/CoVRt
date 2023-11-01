@@ -118,8 +118,8 @@ public class OverviewMap : MonoBehaviour
         else if (t.name == "Floor2")
         {
             Debug.Log("Floor2"); // TODO: IS THIS NEEDED?
-            mapCamera.nearClipPlane = 85;
-            mapCamera.farClipPlane = 95;
+            mapCamera.nearClipPlane = 87;
+            mapCamera.farClipPlane = 92;
 
             selectedFloorToggle = t;
 
