@@ -95,7 +95,7 @@ public class RotationSphere : Interactible
                 puzzleDone.SimpleRaise();
             }
         }
-        else
+        else if (e.value == 1)
         {
             // play sound to indicate incorrect solution
             sfx.emitter.EventReference = incorrectSound;
