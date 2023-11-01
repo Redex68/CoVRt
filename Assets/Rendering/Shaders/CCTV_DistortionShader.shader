@@ -26,6 +26,7 @@ Shader "CustomRenderTexture/CCTV_DistortionShader"
             sampler2D   _MainTex;
             float _Intensity;
             uint _Interlace;
+            float2 _Dimensions;
             
             float osc_rand(float seed) {
                 return frac(
@@ -47,10 +48,10 @@ Shader "CustomRenderTexture/CCTV_DistortionShader"
             float4 frag(v2f_customrendertexture IN) : SV_Target
             {
                 float2 uv = IN.localTexcoord.xy;
-                float2 dimensions = _CustomRenderTextureInfo.xy;
                 float2 displacement = float2(0.005, 0.001) * (0.5 - float2(osc_rand(_Time.x * 37.0 * uv.y), osc_rand(_Time.y * 37.0 * uv.x))) * _Intensity;
-                float2 pixel_coords = uv * dimensions;
                 float4 color = tex2D(_MainTex, uv + displacement) * _Color;
+                float2 dimensions = _Dimensions;//_CustomRenderTextureInfo.xy;
+                float2 pixel_coords = uv * dimensions;
                 /*
                 float dist2center = distance(uv, float2(0.5, 0.5));
                 float vignette = 1 - dist2center;
