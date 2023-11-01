@@ -224,7 +224,7 @@ MonoBehaviour:
   endRot: {fileID: 6385546529868789317}
   resetTime: 0.1
   sphere: {fileID: 3120988777332281392}
-  sfx: {fileID: 0}
+  sfx: {fileID: 6592359484132414849}
 --- !u!54 &4442297492541187481
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -207,7 +207,7 @@ MonoBehaviour:
   spottableObjects: {fileID: 11400000, guid: a722f4a55dbfa344a966801fa2aa6ca0, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 15919
   spotDistance: 30
 --- !u!114 &8291227725654658847
 MonoBehaviour:
