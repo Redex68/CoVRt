@@ -50,6 +50,7 @@ public class TPBallSummoner : MonoBehaviour
 
     void OnUseBall(InputAction.CallbackContext context)
     {
+        Debug.Log("UseBall!");
         if (teleportationBallInstance != null)
         {
             Destroy(teleportationBallInstance);
