@@ -3882,8 +3882,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -262.95, y: 25.25}
-  m_SizeDelta: {x: 239.5, y: 239.3}
+  m_AnchoredPosition: {x: 0.000015259, y: 0.000026464}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7234480491407584752
 CanvasRenderer:
@@ -7807,7 +7807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5256185200829078992
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10578,8 +10578,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertJoystickX: 0
   invertJoystickY: 0
-  invertDial1: 0
-  invertDial2: 0
+  invertDial1: 1
+  invertDial2: 1
   flipAxis: 1
 --- !u!114 &1620810977532668567
 MonoBehaviour:
