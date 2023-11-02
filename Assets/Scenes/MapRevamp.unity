@@ -1039,6 +1039,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 463347943023456988, guid: f333a77e5da682c4e8fcbc2182572def, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 463347943023456988, guid: f333a77e5da682c4e8fcbc2182572def, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 463347943023456988, guid: f333a77e5da682c4e8fcbc2182572def, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015259
+      objectReference: {fileID: 0}
+    - target: {fileID: 463347943023456988, guid: f333a77e5da682c4e8fcbc2182572def, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000026464
+      objectReference: {fileID: 0}
     - target: {fileID: 2704885705275376080, guid: f333a77e5da682c4e8fcbc2182572def, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1118,6 +1134,10 @@ PrefabInstance:
     - target: {fileID: 2704885705275376080, guid: f333a77e5da682c4e8fcbc2182572def, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974171739318076861, guid: f333a77e5da682c4e8fcbc2182572def, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6927100941819538724, guid: f333a77e5da682c4e8fcbc2182572def, type: 3}
       propertyPath: m_Name
@@ -32633,6 +32653,32 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1072917162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 600294687265937802, guid: 9047a95169cf74e4685b8f56b8688cea, type: 3}
+  m_PrefabInstance: {fileID: 3295731381650559447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1072917164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072917162}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.8483636, y: 7.276876, z: 4.0948157}
+  m_Center: {x: 0.031529956, y: -0.42860892, z: -0.059037313}
 --- !u!43 &1072985586
 Mesh:
   m_ObjectHideFlags: 0
@@ -53319,6 +53365,33 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1714825949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7681973789396743046, guid: 9047a95169cf74e4685b8f56b8688cea, type: 3}
+  m_PrefabInstance: {fileID: 3295731381650559447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1714825953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714825949}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ac0283f686985724b9b21574c3968db1, type: 3}
 --- !u!43 &1717880339
 Mesh:
   m_ObjectHideFlags: 0
@@ -70001,6 +70074,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1048330934860909407, guid: 9047a95169cf74e4685b8f56b8688cea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 600294687265937802, guid: 9047a95169cf74e4685b8f56b8688cea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1072917164}
+    - targetCorrespondingSourceObject: {fileID: 7681973789396743046, guid: 9047a95169cf74e4685b8f56b8688cea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1714825953}
   m_SourcePrefab: {fileID: 100100000, guid: 9047a95169cf74e4685b8f56b8688cea, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

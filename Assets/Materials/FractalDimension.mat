@@ -121,7 +121,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _MAX_DST: 30
-    - _MAX_STEP: 67
+    - _MAX_STEP: 135
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -149,6 +149,7 @@ Material:
     - _LightPosition: {r: 1, g: 1, b: 0, a: 0}
     - _MixColorA: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
     - _MixColorB: {r: 0.7735849, g: 0.23125985, b: 0, a: 1}
+    - _Offset: {r: 1.1, g: 0, b: 1.5, a: 0}
     - _Origin: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 0, g: 0.40392157, b: 0.057226744, a: 1}

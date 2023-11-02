@@ -14,6 +14,7 @@ Shader "Custom/FractalDimension"
         [KeywordEnum(Fixed, OW, WO, WS)] _OriginMode ("Origin mode", Integer) = 0
         _Origin ("Origin if Origin mode is 0", Vector) = (1, 1, 1, 0)
         [Toggle] _FlipMode ("Flip?", Integer) = 0
+        _Offset ("Origin offset", Vector) = (0,0,0,0)
 
         [Header(Lighting settings)]
         [Space(5)]
@@ -102,6 +103,7 @@ Shader "Custom/FractalDimension"
             uint _OriginMode;
             float3 _Origin;
             uint _FlipMode;
+            float3 _Offset;
 
             float4 _MixColorA;
             float4 _MixColorB;
@@ -232,6 +234,7 @@ Shader "Custom/FractalDimension"
                 // invProj[2][3] = 0;
                 invProj[3].xyz = float3(0,0,0);
                 origin /= _RepetitionScale;
+                origin += _Offset;
                 float3 direction = mul(invProj, float4(flip * ndc, 0.0, 1.0)).xyz;
                 direction = mul(unity_CameraToWorld, float4(direction, 0.0)).xyz;
                 //direction = mul(unity_WorldToCamera, float4(direction, 0.0)).xyz;
