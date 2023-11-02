@@ -10576,10 +10576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a91aaa57de4a0f4ebc10b2190af50dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertJoystickX: 1
+  invertJoystickX: 0
   invertJoystickY: 0
-  invertDial1: 1
+  invertDial1: 0
   invertDial2: 0
+  flipAxis: 1
 --- !u!114 &1620810977532668567
 MonoBehaviour:
   m_ObjectHideFlags: 0

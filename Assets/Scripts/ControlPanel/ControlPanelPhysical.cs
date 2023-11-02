@@ -10,6 +10,7 @@ public class ControlPanelPhysical : ControlPanel
     [SerializeField] bool invertJoystickY;
     [SerializeField] bool invertDial1;
     [SerializeField] bool invertDial2;
+    [SerializeField] bool flipAxis;
 
     private UnityEvent cameraSelect = new();
     private UnityEvent<int> floorSwitch = new();
@@ -59,8 +60,21 @@ public class ControlPanelPhysical : ControlPanel
         if(segments.Length != 7) return;
 
         int newFloor = int.Parse(segments[0]);
-        int _joystickX = int.Parse(segments[1]);
-        int _joystickY = int.Parse(segments[2]);
+        
+        int _joystickX;
+        int _joystickY;
+        if(flipAxis)
+        {
+            _joystickX = int.Parse(segments[2]);
+            _joystickY = int.Parse(segments[1]);
+
+        }
+        else
+        {
+            _joystickX = int.Parse(segments[1]);
+            _joystickY = int.Parse(segments[2]);
+
+        }
         bool joystickDown = int.Parse(segments[3]) == 1;
         int _dial1 = int.Parse(segments[4]);
         int _dial2 = int.Parse(segments[5]);
