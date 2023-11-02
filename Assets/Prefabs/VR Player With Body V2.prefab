@@ -74,7 +74,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3071
+    m_Bits: 2147486719
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8600000, guid: dc555caae05c8db4f98506ea921abe14, type: 2}
   m_TargetDisplay: 0
@@ -368,12 +368,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1305095974656776978, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_Name
-      value: VR Player With Body Variant
+      value: VR Player With Body V2
       objectReference: {fileID: 0}
     - target: {fileID: 1561048070968685854, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2713986795575524402, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee8cc347324142540944bb7d189191c3, type: 2}
     - target: {fileID: 3153383320707811703, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -382,10 +386,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4352744829020383425, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee8cc347324142540944bb7d189191c3, type: 2}
     - target: {fileID: 4992118947622202799, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5760507531927905766, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee8cc347324142540944bb7d189191c3, type: 2}
+    - target: {fileID: 5770473455493267671, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee8cc347324142540944bb7d189191c3, type: 2}
     - target: {fileID: 6205239483849702504, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -394,17 +410,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7313789424311186464, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
+      propertyPath: m_VersionIndex
+      value: 725
+      objectReference: {fileID: 0}
     - target: {fileID: 7385220706366205180, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29
+      value: -31.6
       objectReference: {fileID: 0}
     - target: {fileID: 7385220706366205180, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00010037422
+      value: 0.0001001358
       objectReference: {fileID: 0}
     - target: {fileID: 7385220706366205180, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.3
+      value: 44.4
       objectReference: {fileID: 0}
     - target: {fileID: 7385220706366205180, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -441,6 +461,10 @@ PrefabInstance:
     - target: {fileID: 8509968435159081329, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126137663569280865, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2147486719
       objectReference: {fileID: 0}
     - target: {fileID: 9202456126628882950, guid: be544aaa0dc72dd43949876f336f25b5, type: 3}
       propertyPath: m_Enabled
