@@ -2,8 +2,8 @@
 
 The game itself is meant to be played on desktop. To play it, a python server needs to be run which communicates with the custom Arduino controller meant to be used by the operator player. The following two ways exist to boot up the game and server simultaneously:
 
-1. By running the run.bat file located in the build folder
-2. By executing the following bash command in the build folder: `./CoVRt.exe && python ContolPanelServer.py`
+1. By running the run.bat file located in the folder with the release files
+2. By executing the following bash command in the folder with the release files: `./CoVRt.exe && python ContolPanelServer.py`
 
 Note: The run.bat file is supposed to be used with the release and not in the source files.
 
