@@ -6,6 +6,10 @@ The game itself is meant to be played on desktop. To play it, a python server ne
 
 1. By executing the following bash command in the build folder: ./CoVRt.exe && python ContolPanelServer.py
 
+# Controller
+
+The custom Arduino consists of 5 components: one switch, one joystick, two dials and one button (appearing in that order on the controller from left to right). The switch flips map view between the first and second floors. The joystick and button are used to switch between cameras, where the joystick controls a pointer on the currently selected camera and where the button allows you to switch to the camera which the pointer points to. The first dial controls the CCTV camera view, allowing you to pan the camera to the left and right. The second dial controls the signal of the camera feed from the CCTV cameras.
+
 # Required equipment
 
 In order to play the game, a VR headset is required and SteamVR is needed to actually play the game in VR. The game has been tested with both Oculus and HTC Vive headsets, so it should work for either one (and most likely others, but with no guarantee). Furthermore, the game uses a custom Arduino controller which communicates with a python server in order to send its inputs to the game. In the repository, there is an instruction manual included. This is meant to be used while playing the game, serving as a help for the other player serving as an operator. It is recommended that this manual is printed out and used as a physical manual.
